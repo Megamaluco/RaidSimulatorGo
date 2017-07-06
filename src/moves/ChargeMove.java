@@ -6,7 +6,7 @@ package moves;
 		private int energyLost;
 		private int timeUntilDodge;
 
-		public ChargeMove(String name, int power, int cooldown,int energyLost, String type, int timeUntilDodge) {
+		public ChargeMove(String name, int power, int cooldown,int energyLost, int type, int timeUntilDodge) {
 			super(name, power, cooldown, type);
 			// TODO Auto-generated constructor stub
 			this.energyLost = energyLost;

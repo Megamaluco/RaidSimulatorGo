@@ -6,7 +6,7 @@ public class Types {
 	public static final int FIRE = 1;
 	public static final int WATER = 2;
 	public static final int GRASS = 3;
-	public static final int ELETRIC = 4;
+	public static final int ELECTRIC = 4;
 	public static final int ICE = 5;
 	public static final int FIGHTING = 6;
 	public static final int POISON = 7;

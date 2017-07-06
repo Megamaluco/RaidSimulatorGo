@@ -62,12 +62,12 @@ public class RaidSimulator {
 		typeChartAdvantage[Types.GRASS][Types.STEEL] = DISADVANTAGE;
 
 
-		typeChartAdvantage[Types.ELETRIC][Types.WATER] = ADVANTAGE;
-		typeChartAdvantage[Types.ELETRIC][Types.GRASS] = DISADVANTAGE;
-		typeChartAdvantage[Types.ELETRIC][Types.ELETRIC] = DISADVANTAGE;
-		typeChartAdvantage[Types.ELETRIC][Types.GROUND] = IMUNITY;
-		typeChartAdvantage[Types.ELETRIC][Types.FLYING] = ADVANTAGE;
-		typeChartAdvantage[Types.ELETRIC][Types.DRAGON] = DISADVANTAGE;
+		typeChartAdvantage[Types.ELECTRIC][Types.WATER] = ADVANTAGE;
+		typeChartAdvantage[Types.ELECTRIC][Types.GRASS] = DISADVANTAGE;
+		typeChartAdvantage[Types.ELECTRIC][Types.ELECTRIC] = DISADVANTAGE;
+		typeChartAdvantage[Types.ELECTRIC][Types.GROUND] = IMUNITY;
+		typeChartAdvantage[Types.ELECTRIC][Types.FLYING] = ADVANTAGE;
+		typeChartAdvantage[Types.ELECTRIC][Types.DRAGON] = DISADVANTAGE;
 
 
 		typeChartAdvantage[Types.ICE][Types.FIRE] = DISADVANTAGE;
@@ -101,7 +101,7 @@ public class RaidSimulator {
 
 		typeChartAdvantage[Types.GROUND][Types.FIRE] = ADVANTAGE;
 		typeChartAdvantage[Types.GROUND][Types.POISON] = DISADVANTAGE;
-		typeChartAdvantage[Types.GROUND][Types.ELETRIC] = ADVANTAGE;
+		typeChartAdvantage[Types.GROUND][Types.ELECTRIC] = ADVANTAGE;
 		typeChartAdvantage[Types.GROUND][Types.POISON] = ADVANTAGE;
 		typeChartAdvantage[Types.GROUND][Types.FLYING] = IMUNITY;
 		typeChartAdvantage[Types.GROUND][Types.BUG] = DISADVANTAGE;
@@ -109,7 +109,7 @@ public class RaidSimulator {
 		typeChartAdvantage[Types.GROUND][Types.STEEL] = ADVANTAGE;
 
 		typeChartAdvantage[Types.FLYING][Types.GRASS] = ADVANTAGE;
-		typeChartAdvantage[Types.FLYING][Types.ELETRIC] = DISADVANTAGE;
+		typeChartAdvantage[Types.FLYING][Types.ELECTRIC] = DISADVANTAGE;
 		typeChartAdvantage[Types.FLYING][Types.FIGHTING] = ADVANTAGE;
 		typeChartAdvantage[Types.FLYING][Types.BUG] = ADVANTAGE;
 		typeChartAdvantage[Types.FLYING][Types.ROCK] = DISADVANTAGE;
@@ -159,7 +159,7 @@ public class RaidSimulator {
 
 		typeChartAdvantage[Types.STEEL][Types.FIRE] = DISADVANTAGE;
 		typeChartAdvantage[Types.STEEL][Types.WATER] = DISADVANTAGE;
-		typeChartAdvantage[Types.STEEL][Types.ELETRIC] = DISADVANTAGE;
+		typeChartAdvantage[Types.STEEL][Types.ELECTRIC] = DISADVANTAGE;
 		typeChartAdvantage[Types.STEEL][Types.ICE] = ADVANTAGE;
 		typeChartAdvantage[Types.STEEL][Types.ROCK] = ADVANTAGE;
 		typeChartAdvantage[Types.STEEL][Types.STEEL] = DISADVANTAGE;
@@ -209,7 +209,7 @@ public class RaidSimulator {
 		
 
 		
-		if(attackerQm.getType().equals(attacker.getTypeA()) || (attacker.getTypeB()!=null && attackerQm.getType().equals(attacker.getTypeB())))
+		if(attackerQm.getType() == attacker.getTypeA() || attackerQm.getType() == attacker.getTypeB())
 			stab = 1.2;
 		else
 			stab = 1.0;

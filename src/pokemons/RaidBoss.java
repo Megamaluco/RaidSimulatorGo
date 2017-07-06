@@ -16,7 +16,7 @@ public class RaidBoss extends Pokemon {
 	private static final int[] BOSS_HEALTH = {600, 1800, 3000, 7500};
 
 
-	public RaidBoss(int dexEntry, String name, String typeA, String typeB, int baseAttack, int baseStamina, int baseDefense,
+	public RaidBoss(int dexEntry, String name, int typeA, int typeB, int baseAttack, int baseStamina, int baseDefense,
 			boolean isFinalEvolution, int tier) {
 		super(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense, isFinalEvolution);
 		//this.hp = (int) (BOSS_HEALTH[tier-1] / 2 / CPM_RAID[tier-1]);

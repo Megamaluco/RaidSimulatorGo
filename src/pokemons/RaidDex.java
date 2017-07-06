@@ -8,6 +8,7 @@ import java.util.List;
 import moves.AllMoves;
 import moves.ChargeMove;
 import moves.QuickMove;
+import moves.Types;
 
 public class RaidDex {
 
@@ -32,7 +33,7 @@ public class RaidDex {
 		AllMoves moves = new AllMoves();
 
 		int tier = 1;
-		boss = new RaidBoss(129, "Magikarp", "Water", null, 29, 40, 102, false, tier);
+		boss = new RaidBoss(129, "Magikarp", Types.WATER, -1, 29, 40, 102, false, tier);
 
 		qm = moves.getQuickMove("Splash");
 		boss.learnQuickMove(qm);
@@ -44,7 +45,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(153, "Bayleef", "Grass", null, 122, 120, 155, false, tier);
+		boss = new RaidBoss(153, "Bayleef", Types.GRASS, -1, 122, 120, 155, false, tier);
 
 		qm = moves.getQuickMove("Razor Leaf");
 		boss.learnQuickMove(qm);
@@ -63,7 +64,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(156, "Quilava", "Fire", null, 158, 116, 129, false, tier);
+		boss = new RaidBoss(156, "Quilava", Types.FIRE, -1, 158, 116, 129, false, tier);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -83,7 +84,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(159, "Croconaw", "Water", null, 150, 130, 151, false, tier);
+		boss = new RaidBoss(159, "Croconaw", Types.WATER, -1, 150, 130, 151, false, tier);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -105,7 +106,7 @@ public class RaidDex {
 
 		tier = 2;
 
-		boss = new RaidBoss(89, "Muk", "Poison", null, 190, 210, 184, false, tier);
+		boss = new RaidBoss(89, "Muk", Types.POISON, -1, 190, 210, 184, false, tier);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -124,7 +125,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(103, "Exeggutor", "Grass", "Psychic", 233, 190, 158, false, tier);
+		boss = new RaidBoss(103, "Exeggutor", Types.GRASS, Types.PSYCHIC, 233, 190, 158, false, tier);
 
 
 		qm = moves.getQuickMove("Extrasensory");
@@ -143,7 +144,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(110, "Weezing", "Water", null, 174, 130, 221, false, tier);
+		boss = new RaidBoss(110, "Weezing", Types.WATER, -1, 174, 130, 221, false, tier);
 
 		qm = moves.getQuickMove("Infestation");
 		boss.learnQuickMove(qm);
@@ -161,7 +162,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(125, "Electabuzz", "Electric", null, 198, 130, 173, false, tier);
+		boss = new RaidBoss(125, "Electabuzz", Types.ELECTRIC, -1, 198, 130, 173, false, tier);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -180,7 +181,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(126, "Magmar", "Fire", null, 206, 130, 169, false, tier);
+		boss = new RaidBoss(126, "Magmar", Types.FIRE, -1, 206, 130, 169, false, tier);
 
 		qm = moves.getQuickMove("Ember");
 		boss.learnQuickMove(qm);
@@ -201,7 +202,7 @@ public class RaidDex {
 		tier = 3;
 
 
-		boss = new RaidBoss(59, "Arcanine", "Fire", null, 227, 180, 166, true, tier);
+		boss = new RaidBoss(59, "Arcanine", Types.FIRE, -1, 227, 180, 166, true, tier);
 
 
 		qm = moves.getQuickMove("Snarl");
@@ -219,7 +220,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(65, "Alakazam", "Psychic", null, 271, 110, 194, true, tier);
+		boss = new RaidBoss(65, "Alakazam", Types.PSYCHIC, -1, 271, 110, 194, true, tier);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -239,7 +240,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(68, "Machamp", "Fight", null, 234, 180, 162, true, tier);
+		boss = new RaidBoss(68, "Machamp", Types.FIGHTING, -1, 234, 180, 162, true, tier);
 
 		qm = moves.getQuickMove("Bullet Punch");
 		boss.learnQuickMove(qm);
@@ -257,7 +258,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(94, "Gengar", "Ghost", "Poison", 261, 120, 156, false, tier);
+		boss = new RaidBoss(94, "Gengar", Types.GHOST, Types.POISON, 261, 120, 156, false, tier);
 
 
 		qm = moves.getQuickMove("Hex");
@@ -275,7 +276,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(134, "Vaporeon", "Water", null, 205, 260, 177, false, tier);
+		boss = new RaidBoss(134, "Vaporeon", Types.WATER, -1, 205, 260, 177, false, tier);
 
 		qm = moves.getQuickMove("Water Gun");
 		boss.learnQuickMove(qm);
@@ -290,7 +291,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(135, "Jolteon", "Electric", null, 232, 130, 201, false, tier);
+		boss = new RaidBoss(135, "Jolteon", Types.ELECTRIC, -1, 232, 130, 201, false, tier);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -308,7 +309,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(136, "Flareon", "Fire", null, 246, 130, 204, false, tier);
+		boss = new RaidBoss(136, "Flareon", Types.FIRE, -1, 246, 130, 204, false, tier);
 
 
 		qm = moves.getQuickMove("Fire Spin");
@@ -330,7 +331,7 @@ public class RaidDex {
 		tier = 4;
 
 
-		boss = new RaidBoss(3, "Venusaur", "Grass", "Poison", 198, 160, 198, true, tier);
+		boss = new RaidBoss(3, "Venusaur", Types.GRASS, Types.POISON, 198, 160, 198, true, tier);
 
 
 		qm = moves.getQuickMove("Razor Leaf");
@@ -347,7 +348,7 @@ public class RaidDex {
 
 
 		raidBossList.add(boss);
-		boss = new RaidBoss(6, "Charizard", "Fire", "Flying", 223, 156, 176, true, tier);
+		boss = new RaidBoss(6, "Charizard", Types.FIRE, Types.FLYING, 223, 156, 176, true, tier);
 
 
 		qm = moves.getQuickMove("Fire Spin");
@@ -367,7 +368,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(9, "Blastoise", "Water", null, 171, 158, 210, true, tier);
+		boss = new RaidBoss(9, "Blastoise", Types.WATER, -1, 171, 158, 210, true, tier);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -384,7 +385,7 @@ public class RaidDex {
 
 
 		raidBossList.add(boss);
-		boss = new RaidBoss(112, "Rhydon", "Ground", "Rock", 222, 210, 206, true, tier);
+		boss = new RaidBoss(112, "Rhydon", Types.GROUND, Types.ROCK, 222, 210, 206, true, tier);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -402,7 +403,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(131, "Lapras", "Ice", "Water", 165, 260, 180, false, tier);
+		boss = new RaidBoss(131, "Lapras", Types.ICE, Types.WATER, 165, 260, 180, false, tier);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -421,7 +422,7 @@ public class RaidDex {
 		raidBossList.add(boss);
 
 
-		boss = new RaidBoss(143, "Snorlax", "Normal", null, 190, 320, 190, false, tier);
+		boss = new RaidBoss(143, "Snorlax", Types.NORMAL, -1, 190, 320, 190, false, tier);
 
 
 		qm = moves.getQuickMove("Lick");
@@ -439,7 +440,7 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
-		boss = new RaidBoss(248, "Tyranitar", "Dark", "Rock", 251, 200, 212, false, tier);
+		boss = new RaidBoss(248, "Tyranitar", Types.DARK, Types.ROCK, 251, 200, 212, false, tier);
 
 
 		qm = moves.getQuickMove("Bite");

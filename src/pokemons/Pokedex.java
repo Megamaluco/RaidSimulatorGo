@@ -11,6 +11,7 @@ import java.util.List;
 import moves.AllMoves;
 import moves.ChargeMove;
 import moves.QuickMove;
+import moves.Types;
 
 /**
  * @author Ricardo Martinho
@@ -37,7 +38,7 @@ public class Pokedex {
 		ChargeMove cm;
 		AllMoves moves = new AllMoves();
 
-		pokemon = new Pokemon(1, "Bulbasaur", "Grass", "Poison", 118, 90, 118, false);
+		pokemon = new Pokemon(1, "Bulbasaur", Types.GRASS, Types.POISON, 118, 90, 118, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -53,7 +54,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(2, "Ivysaur", "Grass", "Poison", 151, 120, 151, false);
+		pokemon = new Pokemon(2, "Ivysaur", Types.GRASS, Types.POISON, 151, 120, 151, false);
 
 		qm = moves.getQuickMove("Razor Leaf");
 		pokemon.learnQuickMove(qm);
@@ -69,7 +70,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(3, "Venusaur", "Grass", "Poison", 198, 160, 198, true);
+		pokemon = new Pokemon(3, "Venusaur", Types.GRASS, Types.POISON, 198, 160, 198, true);
 
 		qm = moves.getQuickMove("Razor Leaf");
 		pokemon.learnQuickMove(qm);
@@ -85,7 +86,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(4, "Charmander", "Fire", null, 116, 78, 96, false);
+		pokemon = new Pokemon(4, "Charmander", Types.FIRE, -1, 116, 78, 96, false);
 
 		qm = moves.getQuickMove("Ember");
 		pokemon.learnQuickMove(qm);
@@ -101,7 +102,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(5, "Charmeleon", "Fire", null, 158, 116, 129, false);
+		pokemon = new Pokemon(5, "Charmeleon", Types.FIRE, -1, 158, 116, 129, false);
 
 		qm = moves.getQuickMove("Ember");
 		pokemon.learnQuickMove(qm);
@@ -119,7 +120,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(6, "Charizard", "Fire", "Flying", 223, 156, 176, true);
+		pokemon = new Pokemon(6, "Charizard", Types.FIRE, Types.FLYING, 223, 156, 176, true);
 
 		qm = moves.getQuickMove("Fire Spin");
 		pokemon.learnQuickMove(qm);
@@ -141,7 +142,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(7, "Squirtle", "Water", null, 94, 88, 122, false);
+		pokemon = new Pokemon(7, "Squirtle", Types.WATER, -1, 94, 88, 122, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -157,7 +158,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(8, "Wartortle", "Water", null, 126, 118, 155, false);
+		pokemon = new Pokemon(8, "Wartortle", Types.WATER, -1, 126, 118, 155, false);
 
 		qm = moves.getQuickMove("Bite");
 		pokemon.learnQuickMove(qm);
@@ -173,7 +174,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(9, "Blastoise", "Water", null, 171, 158, 210, true);
+		pokemon = new Pokemon(9, "Blastoise", Types.WATER, -1, 171, 158, 210, true);
 
 		qm = moves.getQuickMove("Bite");
 		pokemon.learnQuickMove(qm);
@@ -189,7 +190,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(10, "Caterpie", "Bug", null, 55, 90, 62, false);
+		pokemon = new Pokemon(10, "Caterpie", Types.BUG, -1, 55, 90, 62, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -201,7 +202,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(11, "Metapod", "Bug", null, 45, 100, 94, false);
+		pokemon = new Pokemon(11, "Metapod", Types.BUG, -1, 45, 100, 94, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -213,7 +214,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(12, "Butterfree", "Bug", "Flying", 167, 120, 151, true);
+		pokemon = new Pokemon(12, "Butterfree", Types.BUG, Types.FLYING, 167, 120, 151, true);
 
 		qm = moves.getQuickMove("Struggle Bug");
 		pokemon.learnQuickMove(qm);
@@ -231,7 +232,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(13, "Weedle", "Bug", "Poison", 63, 80, 55, false);
+		pokemon = new Pokemon(13, "Weedle", Types.BUG, Types.POISON, 63, 80, 55, false);
 
 		qm = moves.getQuickMove("Poison Sting");
 		pokemon.learnQuickMove(qm);
@@ -243,7 +244,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(14, "Kakuna", "Bug", "Poison", 46, 90, 86, false);
+		pokemon = new Pokemon(14, "Kakuna", Types.BUG, Types.POISON, 46, 90, 86, false);
 
 		qm = moves.getQuickMove("Poison Sting");
 		pokemon.learnQuickMove(qm);
@@ -255,7 +256,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(15, "Beedrill", "Bug", "Poison", 169, 130, 150, true);
+		pokemon = new Pokemon(15, "Beedrill", Types.BUG, Types.POISON, 169, 130, 150, true);
 
 		qm = moves.getQuickMove("Poison Jab");
 		pokemon.learnQuickMove(qm);
@@ -273,7 +274,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(16, "Pidgey", "Flying", "Normal", 85, 80, 76, false);
+		pokemon = new Pokemon(16, "Pidgey", Types.FLYING, Types.NORMAL, 85, 80, 76, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -289,7 +290,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(17, "Pidgeotto", "Flying", "Normal", 117, 126, 108, false);
+		pokemon = new Pokemon(17, "Pidgeotto", Types.FLYING, Types.NORMAL, 117, 126, 108, false);
 
 		qm = moves.getQuickMove("Steel Wing");
 		pokemon.learnQuickMove(qm);
@@ -306,7 +307,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(18, "Pidgeot", "Flying", "Normal", 166, 166, 157, true);
+		pokemon = new Pokemon(18, "Pidgeot", Types.FLYING, Types.NORMAL, 166, 166, 157, true);
 
 
 		qm = moves.getQuickMove("Steel Wing");
@@ -328,7 +329,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(19, "Rattata", "Normal", null, 103, 60, 70, false);
+		pokemon = new Pokemon(19, "Rattata", Types.NORMAL, -1, 103, 60, 70, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -346,7 +347,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(20, "Raticate", "Normal", null, 161, 110, 144, true);
+		pokemon = new Pokemon(20, "Raticate", Types.NORMAL, -1, 161, 110, 144, true);
 
 		qm = moves.getQuickMove("Bite");
 		pokemon.learnQuickMove(qm);
@@ -363,7 +364,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(21, "Spearow", "Flying", "Normal", 112, 80, 61, false);
+		pokemon = new Pokemon(21, "Spearow", Types.FLYING, Types.NORMAL, 112, 80, 61, false);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -383,7 +384,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(22, "Fearow", "Flying", "Normal", 182, 130, 135, true);
+		pokemon = new Pokemon(22, "Fearow", Types.FLYING, Types.NORMAL, 182, 130, 135, true);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -402,7 +403,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(23, "Ekans", "Poison", null, 110, 70, 102, false);
+		pokemon = new Pokemon(23, "Ekans", Types.POISON, -1, 110, 70, 102, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -423,7 +424,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(24, "Arbok", "Poison", null, 167, 120, 158, true);
+		pokemon = new Pokemon(24, "Arbok", Types.POISON, -1, 167, 120, 158, true);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -442,7 +443,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(25, "Pikachu", "Electric", null, 112, 70, 101, false);
+		pokemon = new Pokemon(25, "Pikachu", Types.ELECTRIC, -1, 112, 70, 101, false);
 
 
 		qm = moves.getQuickMove("Quick Attack");
@@ -462,7 +463,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(26, "Raichu", "Electric", null, 193, 120, 165, true);
+		pokemon = new Pokemon(26, "Raichu", Types.ELECTRIC, -1, 193, 120, 165, true);
 
 		qm = moves.getQuickMove("Spark");
 		pokemon.learnQuickMove(qm);
@@ -483,7 +484,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(27, "Sandshrew", "Ground", null, 126, 100, 145, false);
+		pokemon = new Pokemon(27, "Sandshrew", Types.GROUND, -1, 126, 100, 145, false);
 
 
 		qm = moves.getQuickMove("Mud Shot");
@@ -505,7 +506,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(28, "Sandslash", "Ground", null, 182, 150, 202, false);
+		pokemon = new Pokemon(28, "Sandslash", Types.GROUND, -1, 182, 150, 202, false);
 
 
 		qm = moves.getQuickMove("Mud Shot");
@@ -525,7 +526,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(29, "Nidoran female", "Poison", null, 86, 110, 94, false);
+		pokemon = new Pokemon(29, "Nidoran female", Types.POISON, -1, 86, 110, 94, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -545,7 +546,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(30, "Nidorina", "Poison", null, 117, 140, 126, false);
+		pokemon = new Pokemon(30, "Nidorina", Types.POISON, -1, 117, 140, 126, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -565,7 +566,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(31, "Nidoqueen", "Ground", "Poison", 180, 180, 174, true);
+		pokemon = new Pokemon(31, "Nidoqueen", Types.GROUND, Types.POISON, 180, 180, 174, true);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -585,7 +586,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(32, "Nidoran male", "Poison", null, 105, 92, 76, false);
+		pokemon = new Pokemon(32, "Nidoran male", Types.POISON, -1, 105, 92, 76, false);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -605,7 +606,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(33, "Nidorino", "Poison", null, 137, 122, 112, false);
+		pokemon = new Pokemon(33, "Nidorino", Types.POISON, -1, 137, 122, 112, false);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -625,7 +626,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(34, "Nidoking", "Ground", "Poison", 204, 162, 157, true);
+		pokemon = new Pokemon(34, "Nidoking", Types.GROUND, Types.POISON, 204, 162, 157, true);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -647,7 +648,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(35, "Clefairy", "Fairy", null, 107, 140, 116, false);
+		pokemon = new Pokemon(35, "Clefairy", Types.FAIRY, -1, 107, 140, 116, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -666,7 +667,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(36, "Clefable", "Fairy", null, 178, 190, 171, false);
+		pokemon = new Pokemon(36, "Clefable", Types.FAIRY, -1, 178, 190, 171, false);
 
 
 		qm = moves.getQuickMove("Charge Beam");
@@ -686,7 +687,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(37, "Vulpix", "Fire", null, 96, 76, 122, false);
+		pokemon = new Pokemon(37, "Vulpix", Types.FIRE, -1, 96, 76, 122, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -705,7 +706,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(38, "Ninetales", "Fire", null, 169, 146, 204, true);
+		pokemon = new Pokemon(38, "Ninetales", Types.FIRE, -1, 169, 146, 204, true);
 
 
 		qm = moves.getQuickMove("Fire Spin");
@@ -730,7 +731,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(39, "Jigglypuff", "Fairy", "Normal", 80, 230, 44, false);
+		pokemon = new Pokemon(39, "Jigglypuff", Types.FAIRY, Types.NORMAL, 80, 230, 44, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -753,7 +754,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(40, "Wigglytuff", "Fairy", "Normal", 156, 280, 93, true);
+		pokemon = new Pokemon(40, "Wigglytuff", Types.FAIRY, Types.NORMAL, 156, 280, 93, true);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -772,7 +773,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(41, "Zubat", "Flying", "Poison", 83, 80, 76, false);
+		pokemon = new Pokemon(41, "Zubat", Types.FLYING, Types.POISON, 83, 80, 76, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -793,7 +794,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(42, "Golbat", "Flying", "Poison", 161, 150, 153, false);
+		pokemon = new Pokemon(42, "Golbat", Types.FLYING, Types.POISON, 161, 150, 153, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -814,7 +815,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(43, "Oddish", "Grass", "Poison", 131, 90, 116, false);
+		pokemon = new Pokemon(43, "Oddish", Types.GRASS, Types.POISON, 131, 90, 116, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -833,7 +834,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(44, "Gloom", "Grass", "Poison", 153, 120, 139, false);
+		pokemon = new Pokemon(44, "Gloom", Types.GRASS, Types.POISON, 153, 120, 139, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -852,7 +853,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(45, "Vileplume", "Grass", "Poison", 202, 150, 170, true);
+		pokemon = new Pokemon(45, "Vileplume", Types.GRASS, Types.POISON, 202, 150, 170, true);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -871,7 +872,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(46, "Paras", "Bug", "Grass", 121, 70, 99, false);
+		pokemon = new Pokemon(46, "Paras", Types.BUG, Types.GRASS, 121, 70, 99, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -890,7 +891,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(47, "Parasect", "Bug", "Grass", 165, 120, 146, true);
+		pokemon = new Pokemon(47, "Parasect", Types.BUG, Types.GRASS, 165, 120, 146, true);
 
 
 		qm = moves.getQuickMove("Struggle Bug");
@@ -924,7 +925,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(48, "Venonat", "Bug", "Poison", 100, 120, 102, false);
+		pokemon = new Pokemon(48, "Venonat", Types.BUG, Types.POISON, 100, 120, 102, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -943,7 +944,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(49, "Venomoth", "Bug", "Poison", 179, 140, 150, true);
+		pokemon = new Pokemon(49, "Venomoth", Types.BUG, Types.POISON, 179, 140, 150, true);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -966,7 +967,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(50, "Diglett", "Ground", null, 109, 20, 88, false);
+		pokemon = new Pokemon(50, "Diglett", Types.GROUND, -1, 109, 20, 88, false);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -987,7 +988,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(51, "Dugtrio", "Ground", null, 167, 70, 147, true);
+		pokemon = new Pokemon(51, "Dugtrio", Types.GROUND, -1, 167, 70, 147, true);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -1008,7 +1009,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(52, "Meowth", "Normal", null, 92, 80, 81, false);
+		pokemon = new Pokemon(52, "Meowth", Types.NORMAL, -1, 92, 80, 81, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -1029,7 +1030,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(53, "Persian", "Normal", null, 150, 130, 139, true);
+		pokemon = new Pokemon(53, "Persian", Types.NORMAL, -1, 150, 130, 139, true);
 
 
 		qm = moves.getQuickMove("Feint Attack");
@@ -1050,7 +1051,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(54, "Psyduck", "Water", null, 122, 100, 96, false);
+		pokemon = new Pokemon(54, "Psyduck", Types.WATER, -1, 122, 100, 96, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -1069,7 +1070,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(55, "Golduck", "Water", null, 191, 160, 163, true);
+		pokemon = new Pokemon(55, "Golduck", Types.WATER, -1, 191, 160, 163, true);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -1088,7 +1089,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(56, "Mankey", "Fight", null, 148, 80, 87, false);
+		pokemon = new Pokemon(56, "Mankey", Types.FIGHTING, -1, 148, 80, 87, false);
 
 
 		qm = moves.getQuickMove("Karate Chop");
@@ -1107,7 +1108,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(57, "Primeape", "Fight", null, 207, 130, 144, true);
+		pokemon = new Pokemon(57, "Primeape", Types.FIGHTING, -1, 207, 130, 144, true);
 
 
 		qm = moves.getQuickMove("Counter");
@@ -1130,7 +1131,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(58, "Growlithe", "Fire", null, 136, 110, 96, false);
+		pokemon = new Pokemon(58, "Growlithe", Types.FIRE, -1, 136, 110, 96, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -1149,7 +1150,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(59, "Arcanine", "Fire", null, 227, 180, 166, true);
+		pokemon = new Pokemon(59, "Arcanine", Types.FIRE, -1, 227, 180, 166, true);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -1174,7 +1175,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(60, "Poliwag", "Water", null, 101, 80, 82, false);
+		pokemon = new Pokemon(60, "Poliwag", Types.WATER, -1, 101, 80, 82, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -1193,7 +1194,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(61, "Poliwhirl", "Water", null, 130, 130, 130, false);
+		pokemon = new Pokemon(61, "Poliwhirl", Types.WATER, -1, 130, 130, 130, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -1215,7 +1216,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(62, "Poliwrath", "Water", "Fight", 182, 180, 187, true);
+		pokemon = new Pokemon(62, "Poliwrath", Types.WATER, Types.FIGHTING, 182, 180, 187, true);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -1239,7 +1240,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(63, "Abra", "Psychic", null, 195, 50, 103, false);
+		pokemon = new Pokemon(63, "Abra", Types.PSYCHIC, -1, 195, 50, 103, false);
 
 
 		qm = moves.getQuickMove("Zen Headbutt");
@@ -1259,7 +1260,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(64, "Kadabra", "Psychic", null, 232, 80, 138, false);
+		pokemon = new Pokemon(64, "Kadabra", Types.PSYCHIC, -1, 232, 80, 138, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -1278,7 +1279,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(65, "Alakazam", "Psychic", null, 271, 110, 194, true);
+		pokemon = new Pokemon(65, "Alakazam", Types.PSYCHIC, -1, 271, 110, 194, true);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -1302,7 +1303,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(66, "Machop", "Fight", null, 137, 140, 88, false);
+		pokemon = new Pokemon(66, "Machop", Types.FIGHTING, -1, 137, 140, 88, false);
 
 
 		qm = moves.getQuickMove("Karate Chop");
@@ -1324,7 +1325,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(67, "Machoke", "Fight", null, 177, 160, 130, false);
+		pokemon = new Pokemon(67, "Machoke", Types.FIGHTING, -1, 177, 160, 130, false);
 
 
 		qm = moves.getQuickMove("Karate Chop");
@@ -1346,7 +1347,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(68, "Machamp", "Fight", null, 234, 180, 162, true);
+		pokemon = new Pokemon(68, "Machamp", Types.FIGHTING, -1, 234, 180, 162, true);
 
 
 		qm = moves.getQuickMove("Karate Chop");
@@ -1374,7 +1375,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(69, "Bellsprout", "Grass", "Poison", 139, 100, 64, false);
+		pokemon = new Pokemon(69, "Bellsprout", Types.GRASS, Types.POISON, 139, 100, 64, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -1394,7 +1395,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(70, "Weepinbell", "Grass", "Poison", 172, 130, 95, false);
+		pokemon = new Pokemon(70, "Weepinbell", Types.GRASS, Types.POISON, 172, 130, 95, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -1416,7 +1417,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(71, "Victreebel", "Grass", "Poison", 207, 160, 138, true);
+		pokemon = new Pokemon(71, "Victreebel", Types.GRASS, Types.POISON, 207, 160, 138, true);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -1436,7 +1437,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(72, "Tentacool", "Poison", "Water", 97, 80, 182, false);
+		pokemon = new Pokemon(72, "Tentacool", Types.POISON, Types.WATER, 97, 80, 182, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -1456,7 +1457,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(73, "Tentacruel", "Poison", "Water", 166, 160, 237, true);
+		pokemon = new Pokemon(73, "Tentacruel", Types.POISON, Types.WATER, 166, 160, 237, true);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -1476,7 +1477,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(74, "Geodude", "Ground", "Rock", 132, 80, 163, false);
+		pokemon = new Pokemon(74, "Geodude", Types.GROUND, Types.ROCK, 132, 80, 163, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -1496,7 +1497,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(75, "Graveler", "Ground", "Rock", 164, 110, 196, false);
+		pokemon = new Pokemon(75, "Graveler", Types.GROUND, Types.ROCK, 164, 110, 196, false);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -1520,7 +1521,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(76, "Golem", "Ground", "Rock", 211, 160, 229, true);
+		pokemon = new Pokemon(76, "Golem", Types.GROUND, Types.ROCK, 211, 160, 229, true);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -1544,7 +1545,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(77, "Ponyta", "Fire", null, 170, 100, 132, false);
+		pokemon = new Pokemon(77, "Ponyta", Types.FIRE, -1, 170, 100, 132, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -1566,7 +1567,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(78, "Rapidash", "Fire", null, 207, 130, 167, false);
+		pokemon = new Pokemon(78, "Rapidash", Types.FIRE, -1, 207, 130, 167, false);
 
 
 		qm = moves.getQuickMove("Fire Spin");
@@ -1588,7 +1589,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(79, "Slowpoke", "Psychic", "Water", 109, 180, 109, false);
+		pokemon = new Pokemon(79, "Slowpoke", Types.PSYCHIC, Types.WATER, 109, 180, 109, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -1608,7 +1609,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(80, "Slowbro", "Psychic", "Water", 177, 190, 194, true);
+		pokemon = new Pokemon(80, "Slowbro", Types.PSYCHIC, Types.WATER, 177, 190, 194, true);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -1628,7 +1629,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(81, "Magnemite", "Electric", "Steel", 165, 50, 128, false);
+		pokemon = new Pokemon(81, "Magnemite", Types.ELECTRIC, Types.STEEL, 165, 50, 128, false);
 
 		qm = moves.getQuickMove("Spark");
 		pokemon.learnQuickMove(qm);
@@ -1647,7 +1648,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(82, "Magneton", "Electric", "Steel", 223, 100, 182, true);
+		pokemon = new Pokemon(82, "Magneton", Types.ELECTRIC, Types.STEEL, 223, 100, 182, true);
 
 		qm = moves.getQuickMove("Thunder Shock");
 		pokemon.learnQuickMove(qm);
@@ -1670,7 +1671,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(83, "Farfetch'd", "Flying", "Normal", 124, 104, 118, true);
+		pokemon = new Pokemon(83, "Farfetch'd", Types.FLYING, Types.NORMAL, 124, 104, 118, true);
 		qm = moves.getQuickMove("Cut");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Fury Cutter");
@@ -1688,7 +1689,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(84, "Doduo", "Flying", "Normal", 158, 70, 88, false);
+		pokemon = new Pokemon(84, "Doduo", Types.FLYING, Types.NORMAL, 158, 70, 88, false);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -1708,7 +1709,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(85, "Dodrio", "Flying", "Normal", 218, 120, 145, false);
+		pokemon = new Pokemon(85, "Dodrio", Types.FLYING, Types.NORMAL, 218, 120, 145, false);
 
 
 		qm = moves.getQuickMove("Steel Wing");
@@ -1728,7 +1729,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(86, "Seel", "Water", null, 85, 130, 128, false);
+		pokemon = new Pokemon(86, "Seel", Types.WATER, -1, 85, 130, 128, false);
 
 
 		qm = moves.getQuickMove("Lick");
@@ -1750,7 +1751,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(87, "Dewgong", "Ice", "Water", 139, 180, 184, false);
+		pokemon = new Pokemon(87, "Dewgong", Types.ICE, Types.WATER, 139, 180, 184, false);
 
 
 		qm = moves.getQuickMove("Frost Breath");
@@ -1774,7 +1775,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(88, "Grimer", "Poison", null, 135, 160, 90, false);
+		pokemon = new Pokemon(88, "Grimer", Types.POISON, -1, 135, 160, 90, false);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -1794,7 +1795,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(89, "Muk", "Poison", null, 190, 210, 184, false);
+		pokemon = new Pokemon(89, "Muk", Types.POISON, -1, 190, 210, 184, false);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -1815,7 +1816,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(90, "Shellder", "Water", null, 116, 60, 168, false);
+		pokemon = new Pokemon(90, "Shellder", Types.WATER, -1, 116, 60, 168, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -1833,7 +1834,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(91, "Cloyster", "Ice", "Water", 186, 100, 323, false);
+		pokemon = new Pokemon(91, "Cloyster", Types.ICE, Types.WATER, 186, 100, 323, false);
 
 
 		qm = moves.getQuickMove("Frost Breath");
@@ -1855,7 +1856,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(92, "Gastly", "Ghost", "Poison", 186, 60, 70, false);
+		pokemon = new Pokemon(92, "Gastly", Types.GHOST, Types.POISON, 186, 60, 70, false);
 
 
 		qm = moves.getQuickMove("Lick");
@@ -1877,7 +1878,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(93, "Haunter", "Ghost", "Poison", 223, 90, 112, false);
+		pokemon = new Pokemon(93, "Haunter", Types.GHOST, Types.POISON, 223, 90, 112, false);
 
 		qm = moves.getQuickMove("Shadow Claw");
 		pokemon.learnQuickMove(qm);
@@ -1898,7 +1899,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(94, "Gengar", "Ghost", "Poison", 261, 120, 156, false);
+		pokemon = new Pokemon(94, "Gengar", Types.GHOST, Types.POISON, 261, 120, 156, false);
 
 
 		qm = moves.getQuickMove("Shadow Claw");
@@ -1922,7 +1923,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(95, "Onix", "Ground", "Rock", 85, 70, 288, false);
+		pokemon = new Pokemon(95, "Onix", Types.GROUND, Types.ROCK, 85, 70, 288, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -1944,7 +1945,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(96, "Drowzee", "Psychic", null, 89, 120, 158, false);
+		pokemon = new Pokemon(96, "Drowzee", Types.PSYCHIC, -1, 89, 120, 158, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -1962,7 +1963,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(97, "Hypno", "Psychic", null, 144, 170, 215, false);
+		pokemon = new Pokemon(97, "Hypno", Types.PSYCHIC, -1, 144, 170, 215, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -1984,7 +1985,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(98, "Krabby", "Water", null, 181, 60, 156, false);
+		pokemon = new Pokemon(98, "Krabby", Types.WATER, -1, 181, 60, 156, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -2002,7 +2003,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(99, "Kingler", "Water", null, 240, 110, 214, false);
+		pokemon = new Pokemon(99, "Kingler", Types.WATER, -1, 240, 110, 214, false);
 
 		qm = moves.getQuickMove("Bubble");
 		pokemon.learnQuickMove(qm);
@@ -2021,7 +2022,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(100, "Voltorb", "Electric", null, 109, 80, 114, false);
+		pokemon = new Pokemon(100, "Voltorb", Types.ELECTRIC, -1, 109, 80, 114, false);
 
 		qm = moves.getQuickMove("Spark");
 		pokemon.learnQuickMove(qm);
@@ -2040,7 +2041,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(101, "Electrode", "Electric", null, 173, 120, 179, false);
+		pokemon = new Pokemon(101, "Electrode", Types.ELECTRIC, -1, 173, 120, 179, false);
 
 
 		qm = moves.getQuickMove("Spark");
@@ -2060,7 +2061,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(102, "Exeggcute", "Grass", "Psychic", 107, 120, 140, false);
+		pokemon = new Pokemon(102, "Exeggcute", Types.GRASS, Types.PSYCHIC, 107, 120, 140, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -2078,7 +2079,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(103, "Exeggutor", "Grass", "Psychic", 233, 190, 158, false);
+		pokemon = new Pokemon(103, "Exeggutor", Types.GRASS, Types.PSYCHIC, 233, 190, 158, false);
 
 
 		qm = moves.getQuickMove("Extrasensory");
@@ -2099,7 +2100,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(104, "Cubone", "Ground", null, 90, 100, 165, false);
+		pokemon = new Pokemon(104, "Cubone", Types.GROUND, -1, 90, 100, 165, false);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -2117,7 +2118,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(105, "Marowak", "Ground", null, 144, 120, 200, false);
+		pokemon = new Pokemon(105, "Marowak", Types.GROUND, -1, 144, 120, 200, false);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -2137,7 +2138,7 @@ public class Pokedex {
 		allPokemon.add(pokemon);
 
 
-		pokemon = new Pokemon(106, "Hitmonlee", "Fight", null, 224, 100, 211, false);
+		pokemon = new Pokemon(106, "Hitmonlee", Types.FIGHTING, -1, 224, 100, 211, false);
 
 		qm = moves.getQuickMove("Rock Smash");
 		pokemon.learnQuickMove(qm);
@@ -2158,7 +2159,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(107, "Hitmonchan", "Fight", null, 193, 100, 212, false);
+		pokemon = new Pokemon(107, "Hitmonchan", Types.FIGHTING, -1, 193, 100, 212, false);
 
 
 		qm = moves.getQuickMove("Rock Smash");
@@ -2182,7 +2183,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(108, "Lickitung", "Normal", null, 108, 180, 137, false);
+		pokemon = new Pokemon(108, "Lickitung", Types.NORMAL, -1, 108, 180, 137, false);
 
 		qm = moves.getQuickMove("Lick");
 		pokemon.learnQuickMove(qm);
@@ -2199,7 +2200,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(109, "Koffing", "Poison", null, 119, 80, 164, false);
+		pokemon = new Pokemon(109, "Koffing", Types.POISON, -1, 119, 80, 164, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -2219,7 +2220,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(110, "Weezing", "Water", null, 174, 130, 221, false);
+		pokemon = new Pokemon(110, "Weezing", Types.WATER, -1, 174, 130, 221, false);
 
 
 		qm = moves.getQuickMove("Acid");
@@ -2239,7 +2240,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(111, "Rhyhorn", "Ground", "Rock", 140, 160, 157, false);
+		pokemon = new Pokemon(111, "Rhyhorn", Types.GROUND, Types.ROCK, 140, 160, 157, false);
 
 
 		qm = moves.getQuickMove("Mud Slap");
@@ -2257,7 +2258,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(112, "Rhydon", "Ground", "Rock", 222, 210, 206, true);
+		pokemon = new Pokemon(112, "Rhydon", Types.GROUND, Types.ROCK, 222, 210, 206, true);
 
 		qm = moves.getQuickMove("Mud Slap");
 		pokemon.learnQuickMove(qm);
@@ -2273,7 +2274,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(113, "Chansey", "Normal", null, 60, 500, 176, false);
+		pokemon = new Pokemon(113, "Chansey", Types.NORMAL, -1, 60, 500, 176, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -2293,7 +2294,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(114, "Tangela", "Grass", null, 183, 130, 205, false);
+		pokemon = new Pokemon(114, "Tangela", Types.GRASS, -1, 183, 130, 205, false);
 
 
 		qm = moves.getQuickMove("Vine Whip");
@@ -2313,7 +2314,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(115, "Kangaskhan", "Normal", null, 181, 210, 165, false);
+		pokemon = new Pokemon(115, "Kangaskhan", Types.NORMAL, -1, 181, 210, 165, false);
 
 
 		qm = moves.getQuickMove("Low Kick");
@@ -2335,7 +2336,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(116, "Horsea", "Water", null, 129, 60, 125, false);
+		pokemon = new Pokemon(116, "Horsea", Types.WATER, -1, 129, 60, 125, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2353,7 +2354,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(117, "Seadra", "Water", null, 187, 110, 182, false);
+		pokemon = new Pokemon(117, "Seadra", Types.WATER, -1, 187, 110, 182, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2373,7 +2374,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(118, "Goldeen", "Water", null, 123, 90, 115, false);
+		pokemon = new Pokemon(118, "Goldeen", Types.WATER, -1, 123, 90, 115, false);
 
 
 		qm = moves.getQuickMove("Mud Shot");
@@ -2391,7 +2392,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(119, "Seaking", "Water", null, 175, 160, 154, false);
+		pokemon = new Pokemon(119, "Seaking", Types.WATER, -1, 175, 160, 154, false);
 
 
 		qm = moves.getQuickMove("Poison Jab");
@@ -2413,7 +2414,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(120, "Staryu", "Water", null, 137, 60, 112, false);
+		pokemon = new Pokemon(120, "Staryu", Types.WATER, -1, 137, 60, 112, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2433,7 +2434,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(121, "Starmie", "Psychic", "Water", 210, 120, 184, false);
+		pokemon = new Pokemon(121, "Starmie", Types.PSYCHIC, Types.WATER, 210, 120, 184, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2457,7 +2458,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(122, "Mr. Mime", "Fairy", "Psychic", 192, 80, 233, false);
+		pokemon = new Pokemon(122, "Mr. Mime", Types.FAIRY, Types.PSYCHIC, 192, 80, 233, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -2475,7 +2476,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(123, "Scyther", "Bug", "Flying", 218, 140, 170, false);
+		pokemon = new Pokemon(123, "Scyther", Types.BUG, Types.FLYING, 218, 140, 170, false);
 
 
 		qm = moves.getQuickMove("Fury Cutter");
@@ -2497,7 +2498,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(124, "Jynx", "Ice", "Psychic", 223, 130, 182, false);
+		pokemon = new Pokemon(124, "Jynx", Types.ICE, Types.PSYCHIC, 223, 130, 182, false);
 
 
 		qm = moves.getQuickMove("Frost Breath");
@@ -2519,7 +2520,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(125, "Electabuzz", "Electric", null, 198, 130, 173, false);
+		pokemon = new Pokemon(125, "Electabuzz", Types.ELECTRIC, -1, 198, 130, 173, false);
 
 		qm = moves.getQuickMove("Thunder Shock");
 		pokemon.learnQuickMove(qm);
@@ -2535,7 +2536,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(126, "Magmar", "Fire", null, 206, 130, 169, false);
+		pokemon = new Pokemon(126, "Magmar", Types.FIRE, -1, 206, 130, 169, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -2553,7 +2554,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(127, "Pinsir", "Bug", null, 238, 130, 197, false);
+		pokemon = new Pokemon(127, "Pinsir", Types.BUG, -1, 238, 130, 197, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -2575,7 +2576,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(128, "Tauros", "Normal", null, 198, 150, 197, false);
+		pokemon = new Pokemon(128, "Tauros", Types.NORMAL, -1, 198, 150, 197, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -2593,7 +2594,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(129, "Magikarp", "Water", null, 29, 40, 102, false);
+		pokemon = new Pokemon(129, "Magikarp", Types.WATER, -1, 29, 40, 102, false);
 
 
 		qm = moves.getQuickMove("Splash");
@@ -2605,7 +2606,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(130, "Gyarados", "Flying", "Water", 237, 190, 197, false);
+		pokemon = new Pokemon(130, "Gyarados", Types.FLYING, Types.WATER, 237, 190, 197, false);
 
 
 		qm = moves.getQuickMove("Dragon Tail");
@@ -2629,7 +2630,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(131, "Lapras", "Ice", "Water", 165, 260, 180, true);
+		pokemon = new Pokemon(131, "Lapras", Types.ICE, Types.WATER, 165, 260, 180, true);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2650,7 +2651,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(132, "Ditto", "Normal", null, 91, 96, 91, false);
+		pokemon = new Pokemon(132, "Ditto", Types.NORMAL, -1, 91, 96, 91, false);
 
 
 		qm = moves.getQuickMove("Transform");
@@ -2662,7 +2663,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(133, "Eevee", "Normal", null, 104, 110, 121, false);
+		pokemon = new Pokemon(133, "Eevee", Types.NORMAL, -1, 104, 110, 121, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -2680,7 +2681,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(134, "Vaporeon", "Water", null, 205, 260, 177, false);
+		pokemon = new Pokemon(134, "Vaporeon", Types.WATER, -1, 205, 260, 177, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2695,7 +2696,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(135, "Jolteon", "Electric", null, 232, 130, 201, false);
+		pokemon = new Pokemon(135, "Jolteon", Types.ELECTRIC, -1, 232, 130, 201, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -2712,7 +2713,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(136, "Flareon", "Fire", null, 246, 130, 204, false);
+		pokemon = new Pokemon(136, "Flareon", Types.FIRE, -1, 246, 130, 204, false);
 
 		qm = moves.getQuickMove("Fire Spin");
 		pokemon.learnQuickMove(qm);
@@ -2730,7 +2731,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(137, "Porygon", "Normal", null, 153, 130, 139, false);
+		pokemon = new Pokemon(137, "Porygon", Types.NORMAL, -1, 153, 130, 139, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -2760,7 +2761,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(138, "Omanyte", "Rock", "Water", 155, 70, 174, false);
+		pokemon = new Pokemon(138, "Omanyte", Types.ROCK, Types.WATER, 155, 70, 174, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -2782,7 +2783,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(139, "Omastar", "Rock", "Water", 207, 140, 227, false);
+		pokemon = new Pokemon(139, "Omastar", Types.ROCK, Types.WATER, 207, 140, 227, false);
 
 
 		qm = moves.getQuickMove("Rock Throw");
@@ -2804,7 +2805,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(140, "Kabuto", "Rock", "Water", 148, 60, 162, false);
+		pokemon = new Pokemon(140, "Kabuto", Types.ROCK, Types.WATER, 148, 60, 162, false);
 
 
 		qm = moves.getQuickMove("Mud Shot");
@@ -2822,7 +2823,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(141, "Kabutops", "Rock", "Water", 220, 120, 203, false);
+		pokemon = new Pokemon(141, "Kabutops", Types.ROCK, Types.WATER, 220, 120, 203, false);
 
 
 		qm = moves.getQuickMove("Fury Cutter");
@@ -2842,7 +2843,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(142, "Aerodactyl", "Flying", "Rock", 221, 160, 164, false);
+		pokemon = new Pokemon(142, "Aerodactyl", Types.FLYING, Types.ROCK, 221, 160, 164, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -2860,7 +2861,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(143, "Snorlax", "Normal", null, 190, 320, 190, true);
+		pokemon = new Pokemon(143, "Snorlax", Types.NORMAL, -1, 190, 320, 190, true);
 
 
 		qm = moves.getQuickMove("Lick");
@@ -2879,7 +2880,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(144, "Articuno", "Flying", "Ice", 192, 180, 249, false);
+		pokemon = new Pokemon(144, "Articuno", Types.FLYING, Types.ICE, 192, 180, 249, false);
 
 
 		qm = moves.getQuickMove("Frost Breath");
@@ -2895,7 +2896,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(145, "Zapdos", "Electric", "Flying", 253, 180, 188, false);
+		pokemon = new Pokemon(145, "Zapdos", Types.ELECTRIC, Types.FLYING, 253, 180, 188, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -2915,7 +2916,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(146, "Moltres", "Fire", "Flying", 251, 180, 184, false);
+		pokemon = new Pokemon(146, "Moltres", Types.FIRE, Types.FLYING, 251, 180, 184, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -2935,7 +2936,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(147, "Dratini", "Dragon", null, 119, 82, 94, false);
+		pokemon = new Pokemon(147, "Dratini", Types.DRAGON, -1, 119, 82, 94, false);
 
 		qm = moves.getQuickMove("Dragon Breath");
 		pokemon.learnQuickMove(qm);
@@ -2952,7 +2953,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(148, "Dragonair", "Dragon", null, 163, 122, 138, false);
+		pokemon = new Pokemon(148, "Dragonair", Types.DRAGON, -1, 163, 122, 138, false);
 
 
 		qm = moves.getQuickMove("Dragon Breath");
@@ -2970,7 +2971,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(149, "Dragonite", "Dragon", "Flying", 263, 182, 201, false);
+		pokemon = new Pokemon(149, "Dragonite", Types.DRAGON, Types.FLYING, 263, 182, 201, false);
 
 
 		qm = moves.getQuickMove("Dragon Tail");
@@ -2994,7 +2995,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(150, "Mewtwo", "Psychic", null, 330, 212, 200, false);
+		pokemon = new Pokemon(150, "Mewtwo", Types.PSYCHIC, -1, 330, 212, 200, false);
 
 		qm = moves.getQuickMove("Psycho Cut");
 		pokemon.learnQuickMove(qm);
@@ -3013,7 +3014,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(151, "Mew", "Psychic", null, 210, 200, 209, false);
+		pokemon = new Pokemon(151, "Mew", Types.PSYCHIC, -1, 210, 200, 209, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -3043,7 +3044,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(152, "Chikorita", "Grass", null, 92, 90, 122, false);
+		pokemon = new Pokemon(152, "Chikorita", Types.GRASS, -1, 92, 90, 122, false);
 
 		qm = moves.getQuickMove("Vine Whip");
 		pokemon.learnQuickMove(qm);
@@ -3060,7 +3061,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(153, "Bayleef", "Grass", null, 122, 120, 155, false);
+		pokemon = new Pokemon(153, "Bayleef", Types.GRASS, -1, 122, 120, 155, false);
 
 
 		qm = moves.getQuickMove("Razor Leaf");
@@ -3078,7 +3079,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(154, "Meganium", "Grass", null, 168, 160, 202, false);
+		pokemon = new Pokemon(154, "Meganium", Types.GRASS, -1, 168, 160, 202, false);
 
 
 		qm = moves.getQuickMove("Vine Whip");
@@ -3096,7 +3097,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(155, "Cyndaquil", "Fire", null, 116, 78, 96, false);
+		pokemon = new Pokemon(155, "Cyndaquil", Types.FIRE, -1, 116, 78, 96, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -3114,7 +3115,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(156, "Quilava", "Fire", null, 158, 116, 129, false);
+		pokemon = new Pokemon(156, "Quilava", Types.FIRE, -1, 158, 116, 129, false);
 
 		qm = moves.getQuickMove("Ember");
 		pokemon.learnQuickMove(qm);
@@ -3131,7 +3132,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(157, "Typhlosion", "Fire", null, 223, 156, 176, false);
+		pokemon = new Pokemon(157, "Typhlosion", Types.FIRE, -1, 223, 156, 176, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -3149,7 +3150,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(158, "Totodile", "Water", null, 117, 100, 116, false);
+		pokemon = new Pokemon(158, "Totodile", Types.WATER, -1, 117, 100, 116, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3167,7 +3168,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(159, "Croconaw", "Water", null, 150, 130, 151, false);
+		pokemon = new Pokemon(159, "Croconaw", Types.WATER, -1, 150, 130, 151, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3185,7 +3186,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(160, "Feraligatr", "Water", null, 205, 170, 197, false);
+		pokemon = new Pokemon(160, "Feraligatr", Types.WATER, -1, 205, 170, 197, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3203,7 +3204,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(161, "Sentret", "Normal", null, 79, 70, 77, false);
+		pokemon = new Pokemon(161, "Sentret", Types.NORMAL, -1, 79, 70, 77, false);
 
 
 		qm = moves.getQuickMove("Scratch");
@@ -3221,7 +3222,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(162, "Furret", "Normal", null, 148, 170, 130, false);
+		pokemon = new Pokemon(162, "Furret", Types.NORMAL, -1, 148, 170, 130, false);
 
 
 		qm = moves.getQuickMove("Quick Attack");
@@ -3239,7 +3240,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(163, "Hoothoot", "Flying", "Normal", 67, 120, 101, false);
+		pokemon = new Pokemon(163, "Hoothoot", Types.FLYING, Types.NORMAL, 67, 120, 101, false);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -3257,7 +3258,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(164, "Noctowl", "Flying", "Normal", 145, 200, 179, false);
+		pokemon = new Pokemon(164, "Noctowl", Types.FLYING, Types.NORMAL, 145, 200, 179, false);
 
 
 		qm = moves.getQuickMove("Wing Attack");
@@ -3275,7 +3276,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(165, "Ledyba", "Bug", "Flying", 72, 80, 142, false);
+		pokemon = new Pokemon(165, "Ledyba", Types.BUG, Types.FLYING, 72, 80, 142, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -3293,7 +3294,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(166, "Ledian", "Bug", "Flying", 107, 110, 209, false);
+		pokemon = new Pokemon(166, "Ledian", Types.BUG, Types.FLYING, 107, 110, 209, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -3311,7 +3312,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(167, "Spinarak", "Bug", "Poison", 105, 80, 73, false);
+		pokemon = new Pokemon(167, "Spinarak", Types.BUG, Types.POISON, 105, 80, 73, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -3329,7 +3330,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(168, "Ariados", "Bug", "Poison", 161, 140, 128, false);
+		pokemon = new Pokemon(168, "Ariados", Types.BUG, Types.POISON, 161, 140, 128, false);
 
 
 		qm = moves.getQuickMove("Infestation");
@@ -3347,7 +3348,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(169, "Crobat", "Flying", "Poison", 194, 170, 178, false);
+		pokemon = new Pokemon(169, "Crobat", Types.FLYING, Types.POISON, 194, 170, 178, false);
 
 
 		qm = moves.getQuickMove("Air Slash");
@@ -3365,7 +3366,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(170, "Chinchou", "Electric", "Water", 106, 150, 106, false);
+		pokemon = new Pokemon(170, "Chinchou", Types.ELECTRIC, Types.WATER, 106, 150, 106, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -3383,7 +3384,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(171, "Lanturn", "Electric", "Water", 146, 250, 146, false);
+		pokemon = new Pokemon(171, "Lanturn", Types.ELECTRIC, Types.WATER, 146, 250, 146, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3401,7 +3402,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(172, "Pichu", "Electric", null, 77, 40, 63, false);
+		pokemon = new Pokemon(172, "Pichu", Types.ELECTRIC, -1, 77, 40, 63, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -3419,7 +3420,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(173, "Cleffa", "Fairy", null, 75, 100, 91, false);
+		pokemon = new Pokemon(173, "Cleffa", Types.FAIRY, -1, 75, 100, 91, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -3441,7 +3442,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(174, "Igglybuff", "Fairy", "Normal", 69, 180, 34, false);
+		pokemon = new Pokemon(174, "Igglybuff", Types.FAIRY, Types.NORMAL, 69, 180, 34, false);
 
 		qm = moves.getQuickMove("Pound");
 		pokemon.learnQuickMove(qm);
@@ -3460,7 +3461,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(175, "Togepi", "Fairy", null, 67, 70, 116, false);
+		pokemon = new Pokemon(175, "Togepi", Types.FAIRY, -1, 67, 70, 116, false);
 
 
 		qm = moves.getQuickMove("Zen Headbutt");
@@ -3479,7 +3480,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(176, "Togetic", "Fairy", "Flying", 139, 110, 191, false);
+		pokemon = new Pokemon(176, "Togetic", Types.FAIRY, Types.FLYING, 139, 110, 191, false);
 
 
 		qm = moves.getQuickMove("Steel Wing");
@@ -3501,7 +3502,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(177, "Natu", "Flying", "Psychic", 134, 80, 89, false);
+		pokemon = new Pokemon(177, "Natu", Types.FLYING, Types.PSYCHIC, 134, 80, 89, false);
 
 
 		qm = moves.getQuickMove("Peck");
@@ -3521,7 +3522,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(178, "Xatu", "Flying", "Psychic", 192, 130, 146, false);
+		pokemon = new Pokemon(178, "Xatu", Types.FLYING, Types.PSYCHIC, 192, 130, 146, false);
 
 
 		qm = moves.getQuickMove("Air Slash");
@@ -3539,7 +3540,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(179, "Mareep", "Electric", null, 114, 110, 82, false);
+		pokemon = new Pokemon(179, "Mareep", Types.ELECTRIC, -1, 114, 110, 82, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -3557,7 +3558,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(180, "Flaaffy", "Electric", null, 145, 140, 112, false);
+		pokemon = new Pokemon(180, "Flaaffy", Types.ELECTRIC, -1, 145, 140, 112, false);
 
 
 		qm = moves.getQuickMove("Charge Beam");
@@ -3575,7 +3576,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(181, "Ampharos", "Electric", null, 211, 180, 172, false);
+		pokemon = new Pokemon(181, "Ampharos", Types.ELECTRIC, -1, 211, 180, 172, false);
 
 
 		qm = moves.getQuickMove("Charge Beam");
@@ -3593,7 +3594,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(182, "Bellossom", "Grass", null, 169, 150, 189, false);
+		pokemon = new Pokemon(182, "Bellossom", Types.GRASS, -1, 169, 150, 189, false);
 
 
 		qm = moves.getQuickMove("Razor Leaf");
@@ -3611,7 +3612,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(183, "Marill", "Fairy", "Water", 37, 140, 93, false);
+		pokemon = new Pokemon(183, "Marill", Types.FAIRY, Types.WATER, 37, 140, 93, false);
 
 		qm = moves.getQuickMove("Bubble");
 		pokemon.learnQuickMove(qm);
@@ -3628,7 +3629,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(184, "Azumarill", "Fairy", "Water", 112, 200, 152, false);
+		pokemon = new Pokemon(184, "Azumarill", Types.FAIRY, Types.WATER, 112, 200, 152, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -3646,7 +3647,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(185, "Sudowoodo", "Rock", null, 167, 140, 198, false);
+		pokemon = new Pokemon(185, "Sudowoodo", Types.ROCK, -1, 167, 140, 198, false);
 
 
 		qm = moves.getQuickMove("Rock Throw");
@@ -3664,7 +3665,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(186, "Politoed", "Water", null, 174, 180, 192, false);
+		pokemon = new Pokemon(186, "Politoed", Types.WATER, -1, 174, 180, 192, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -3682,7 +3683,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(187, "Hoppip", "Flying", "Grass", 67, 70, 101, false);
+		pokemon = new Pokemon(187, "Hoppip", Types.FLYING, Types.GRASS, 67, 70, 101, false);
 
 
 		qm = moves.getQuickMove("Bullet Seed");
@@ -3700,7 +3701,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(188, "Skiploom", "Flying", "Grass", 91, 110, 127, false);
+		pokemon = new Pokemon(188, "Skiploom", Types.FLYING, Types.GRASS, 91, 110, 127, false);
 
 
 		qm = moves.getQuickMove("Bullet Seed");
@@ -3718,7 +3719,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(189, "Jumpluff", "Flying", "Grass", 118, 150, 197, false);
+		pokemon = new Pokemon(189, "Jumpluff", Types.FLYING, Types.GRASS, 118, 150, 197, false);
 
 
 		qm = moves.getQuickMove("Bullet Seed");
@@ -3736,7 +3737,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(190, "Aipom", "Normal", null, 136, 110, 112, false);
+		pokemon = new Pokemon(190, "Aipom", Types.NORMAL, -1, 136, 110, 112, false);
 
 
 		qm = moves.getQuickMove("Scratch");
@@ -3754,7 +3755,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(191, "Sunkern", "Grass", null, 55, 60, 55, false);
+		pokemon = new Pokemon(191, "Sunkern", Types.GRASS, -1, 55, 60, 55, false);
 
 
 		qm = moves.getQuickMove("Razor Leaf");
@@ -3772,7 +3773,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(192, "Sunflora", "Grass", null, 185, 150, 148, false);
+		pokemon = new Pokemon(192, "Sunflora", Types.GRASS, -1, 185, 150, 148, false);
 
 
 		qm = moves.getQuickMove("Razor Leaf");
@@ -3791,7 +3792,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(193, "Yanma", "Bug", "Flying", 154, 130, 94, false);
+		pokemon = new Pokemon(193, "Yanma", Types.BUG, Types.FLYING, 154, 130, 94, false);
 
 
 		qm = moves.getQuickMove("Wing Attack");
@@ -3809,7 +3810,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(194, "Wooper", "Ground", "Water", 75, 110, 75, false);
+		pokemon = new Pokemon(194, "Wooper", Types.GROUND, Types.WATER, 75, 110, 75, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3827,7 +3828,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(195, "Quagsire", "Ground", "Water", 152, 190, 152, false);
+		pokemon = new Pokemon(195, "Quagsire", Types.GROUND, Types.WATER, 152, 190, 152, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -3845,7 +3846,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(196, "Espeon", "Psychic", null, 261, 130, 194, false);
+		pokemon = new Pokemon(196, "Espeon", Types.PSYCHIC, -1, 261, 130, 194, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -3863,7 +3864,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(197, "Umbreon", "Dark", null, 126, 190, 250, false);
+		pokemon = new Pokemon(197, "Umbreon", Types.DARK, -1, 126, 190, 250, false);
 
 
 		qm = moves.getQuickMove("Feint Attack");
@@ -3879,7 +3880,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(198, "Murkrow", "Dark", "Flying", 175, 120, 87, false);
+		pokemon = new Pokemon(198, "Murkrow", Types.DARK, Types.FLYING, 175, 120, 87, false);
 
 
 		qm = moves.getQuickMove("Feint Attack");
@@ -3897,7 +3898,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(199, "Slowking", "Psychic", "Water", 177, 190, 194, false);
+		pokemon = new Pokemon(199, "Slowking", Types.PSYCHIC, Types.WATER, 177, 190, 194, false);
 
 		qm = moves.getQuickMove("Confusion");
 		pokemon.learnQuickMove(qm);
@@ -3914,7 +3915,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(200, "Misdreavus", "Ghost", null, 167, 120, 167, false);
+		pokemon = new Pokemon(200, "Misdreavus", Types.GHOST, -1, 167, 120, 167, false);
 
 
 		qm = moves.getQuickMove("Hex");
@@ -3932,7 +3933,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(201, "Unown", "Psychic", null, 136, 96, 91, false);
+		pokemon = new Pokemon(201, "Unown", Types.PSYCHIC, -1, 136, 96, 91, false);
 
 
 		qm = moves.getQuickMove("HIDEN POWER TODO");
@@ -3946,7 +3947,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(202, "Wobbuffet", "Psychic", null, 60, 380, 106, false);
+		pokemon = new Pokemon(202, "Wobbuffet", Types.PSYCHIC, -1, 60, 380, 106, false);
 
 
 		qm = moves.getQuickMove("Splash");
@@ -3960,7 +3961,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(203, "Girafarig", "Normal", "Psychic", 182, 140, 133, false);
+		pokemon = new Pokemon(203, "Girafarig", Types.NORMAL, Types.PSYCHIC, 182, 140, 133, false);
 
 
 		qm = moves.getQuickMove("Confusion");
@@ -3978,7 +3979,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(204, "Pineco", "Bug", null, 108, 100, 146, false);
+		pokemon = new Pokemon(204, "Pineco", Types.BUG, -1, 108, 100, 146, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -3996,7 +3997,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(205, "Forretress", "Bug", "Steel", 161, 150, 242, false);
+		pokemon = new Pokemon(205, "Forretress", Types.BUG, Types.STEEL, 161, 150, 242, false);
 
 
 		qm = moves.getQuickMove("Bug Bite");
@@ -4014,7 +4015,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(206, "Dunsparce", "Normal", null, 131, 200, 131, false);
+		pokemon = new Pokemon(206, "Dunsparce", Types.NORMAL, -1, 131, 200, 131, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -4032,7 +4033,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(207, "Gligar", "Flying", "Ground", 143, 130, 204, false);
+		pokemon = new Pokemon(207, "Gligar", Types.FLYING, Types.GROUND, 143, 130, 204, false);
 
 
 		qm = moves.getQuickMove("Wing Attack");
@@ -4050,7 +4051,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(208, "Steelix", "Ground", "Steel", 148, 150, 333, false);
+		pokemon = new Pokemon(208, "Steelix", Types.GROUND, Types.STEEL, 148, 150, 333, false);
 
 
 		qm = moves.getQuickMove("Iron Tail");
@@ -4068,7 +4069,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(209, "Snubbull", "Fairy", null, 137, 120, 89, false);
+		pokemon = new Pokemon(209, "Snubbull", Types.FAIRY, -1, 137, 120, 89, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -4086,7 +4087,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(210, "Granbull", "Fairy", null, 212, 180, 137, false);
+		pokemon = new Pokemon(210, "Granbull", Types.FAIRY, -1, 212, 180, 137, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -4104,7 +4105,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(211, "Qwilfish", "Poison", "Water", 184, 130, 148, false);
+		pokemon = new Pokemon(211, "Qwilfish", Types.POISON, Types.WATER, 184, 130, 148, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -4122,7 +4123,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(212, "Scizor", "Bug", "Steel", 236, 140, 191, false);
+		pokemon = new Pokemon(212, "Scizor", Types.BUG, Types.STEEL, 236, 140, 191, false);
 
 
 		qm = moves.getQuickMove("Bullet Punch");
@@ -4140,7 +4141,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(213, "Shuckle", "Bug", "Rock", 17, 40, 396, false);
+		pokemon = new Pokemon(213, "Shuckle", Types.BUG, Types.ROCK, 17, 40, 396, false);
 
 
 		qm = moves.getQuickMove("Rock Throw");
@@ -4158,7 +4159,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(214, "Heracross", "Bug", "Fight", 234, 160, 189, false);
+		pokemon = new Pokemon(214, "Heracross", Types.BUG, Types.FIGHTING, 234, 160, 189, false);
 
 
 		qm = moves.getQuickMove("Struggle Bug");
@@ -4176,7 +4177,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(215, "Sneasel", "Dark", "Ice", 189, 110, 157, false);
+		pokemon = new Pokemon(215, "Sneasel", Types.DARK, Types.ICE, 189, 110, 157, false);
 
 
 		qm = moves.getQuickMove("Feint Attack");
@@ -4194,7 +4195,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(216, "Teddiursa", "Normal", null, 142, 120, 93, false);
+		pokemon = new Pokemon(216, "Teddiursa", Types.NORMAL, -1, 142, 120, 93, false);
 
 
 		qm = moves.getQuickMove("Scratch");
@@ -4212,7 +4213,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(217, "Ursaring", "Normal", null, 236, 180, 144, false);
+		pokemon = new Pokemon(217, "Ursaring", Types.NORMAL, -1, 236, 180, 144, false);
 
 
 		qm = moves.getQuickMove("Metal Claw");
@@ -4230,7 +4231,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(218, "Slugma", "Fire", null, 118, 80, 71, false);
+		pokemon = new Pokemon(218, "Slugma", Types.FIRE, -1, 118, 80, 71, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -4248,7 +4249,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(219, "Magcargo", "Fire", "Rock", 139, 100, 209, false);
+		pokemon = new Pokemon(219, "Magcargo", Types.FIRE, Types.ROCK, 139, 100, 209, false);
 
 		qm = moves.getQuickMove("Ember");
 		pokemon.learnQuickMove(qm);
@@ -4265,7 +4266,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(220, "Swinub", "Ground", "Ice", 90, 100, 74, false);
+		pokemon = new Pokemon(220, "Swinub", Types.GROUND, Types.ICE, 90, 100, 74, false);
 
 		qm = moves.getQuickMove("Powder Snow");
 		pokemon.learnQuickMove(qm);
@@ -4282,7 +4283,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(221, "Piloswine", "Ground", "Ice", 181, 200, 147, false);
+		pokemon = new Pokemon(221, "Piloswine", Types.GROUND, Types.ICE, 181, 200, 147, false);
 
 
 		qm = moves.getQuickMove("Ice Shard");
@@ -4300,7 +4301,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(222, "Corsola", "Rock", "Water", 118, 110, 156, false);
+		pokemon = new Pokemon(222, "Corsola", Types.ROCK, Types.WATER, 118, 110, 156, false);
 
 
 		qm = moves.getQuickMove("Bubble");
@@ -4318,7 +4319,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(223, "Remoraid", "Water", null, 127, 70, 69, false);
+		pokemon = new Pokemon(223, "Remoraid", Types.WATER, -1, 127, 70, 69, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -4336,7 +4337,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(224, "Octillery", "Water", null, 197, 150, 141, false);
+		pokemon = new Pokemon(224, "Octillery", Types.WATER, -1, 197, 150, 141, false);
 
 
 		qm = moves.getQuickMove("Water Gun");
@@ -4354,7 +4355,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(225, "Delibird", "Flying", "Ice", 128, 90, 90, false);
+		pokemon = new Pokemon(225, "Delibird", Types.FLYING, Types.ICE, 128, 90, 90, false);
 
 
 		qm = moves.getQuickMove("Ice Shard");
@@ -4372,7 +4373,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(226, "Mantine", "Flying", "Water", 148, 130, 260, false);
+		pokemon = new Pokemon(226, "Mantine", Types.FLYING, Types.WATER, 148, 130, 260, false);
 
 
 		qm = moves.getQuickMove("Wing Attack");
@@ -4390,7 +4391,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(227, "Skarmory", "Flying", "Steel", 148, 130, 260, false);
+		pokemon = new Pokemon(227, "Skarmory", Types.FLYING, Types.STEEL, 148, 130, 260, false);
 
 
 		qm = moves.getQuickMove("Steel Wing");
@@ -4408,7 +4409,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(228, "Houndour", "Dark", "Fire", 152, 90, 93, false);
+		pokemon = new Pokemon(228, "Houndour", Types.DARK, Types.FIRE, 152, 90, 93, false);
 
 
 		qm = moves.getQuickMove("Feint Attack");
@@ -4427,7 +4428,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(229, "Houndoom", "Dark", "Fire", 224, 150, 159, false);
+		pokemon = new Pokemon(229, "Houndoom", Types.DARK, Types.FIRE, 224, 150, 159, false);
 
 
 		qm = moves.getQuickMove("Snarl");
@@ -4445,7 +4446,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(230, "Kingdra", "Dragon", "Water", 194, 150, 194, false);
+		pokemon = new Pokemon(230, "Kingdra", Types.DRAGON, Types.WATER, 194, 150, 194, false);
 
 
 		qm = moves.getQuickMove("Dragon Breath");
@@ -4464,7 +4465,7 @@ public class Pokedex {
 
 		allPokemon.add(pokemon);
 
-		pokemon = new Pokemon(231, "Phanpy", "Ground", null, 107, 180, 107, false);
+		pokemon = new Pokemon(231, "Phanpy", Types.GROUND, -1, 107, 180, 107, false);
 
 
 		qm = moves.getQuickMove("Rock Smash");
@@ -4482,7 +4483,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(232, "Donphan", "Ground", null, 214, 180, 214, false);
+		pokemon = new Pokemon(232, "Donphan", Types.GROUND, -1, 214, 180, 214, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -4499,7 +4500,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(233, "Porygon2", "Normal", null, 198, 170, 183, false);
+		pokemon = new Pokemon(233, "Porygon2", Types.NORMAL, -1, 198, 170, 183, false);
 
 		qm = moves.getQuickMove("Charge Beam");
 		pokemon.learnQuickMove(qm);
@@ -4516,7 +4517,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(234, "Stantler", "Normal", null, 192, 146, 132, false);
+		pokemon = new Pokemon(234, "Stantler", Types.NORMAL, -1, 192, 146, 132, false);
 
 		qm = moves.getQuickMove("Tackle");
 		pokemon.learnQuickMove(qm);
@@ -4533,7 +4534,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(235, "Smeargle", "Normal", null, 40, 110, 88, false);
+		pokemon = new Pokemon(235, "Smeargle", Types.NORMAL, -1, 40, 110, 88, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -4545,7 +4546,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(236, "Tyrogue", "Fight", null, 64, 70, 64, false);
+		pokemon = new Pokemon(236, "Tyrogue", Types.FIGHTING, -1, 64, 70, 64, false);
 
 
 		qm = moves.getQuickMove("Rock Smash");
@@ -4563,7 +4564,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(237, "Hitmontop", "Fight", null, 173, 100, 214, false);
+		pokemon = new Pokemon(237, "Hitmontop", Types.FIGHTING, -1, 173, 100, 214, false);
 
 		qm = moves.getQuickMove("Rock Smash");
 		pokemon.learnQuickMove(qm);
@@ -4580,7 +4581,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(238, "Smoochum", "Ice", "Psychic", 153, 90, 116, false);
+		pokemon = new Pokemon(238, "Smoochum", Types.ICE, Types.PSYCHIC, 153, 90, 116, false);
 
 		qm = moves.getQuickMove("Pound");
 		pokemon.learnQuickMove(qm);
@@ -4599,7 +4600,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(239, "Elekid", "Electric", null, 135, 90, 110, false);
+		pokemon = new Pokemon(239, "Elekid", Types.ELECTRIC, -1, 135, 90, 110, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -4619,7 +4620,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(240, "Magby", "Fire", null, 151, 90, 108, false);
+		pokemon = new Pokemon(240, "Magby", Types.FIRE, -1, 151, 90, 108, false);
 
 
 		qm = moves.getQuickMove("Ember");
@@ -4639,7 +4640,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(241, "Miltank", "Normal", null, 157, 190, 211, false);
+		pokemon = new Pokemon(241, "Miltank", Types.NORMAL, -1, 157, 190, 211, false);
 
 
 		qm = moves.getQuickMove("Tackle");
@@ -4657,7 +4658,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(242, "Blissey", "Normal", null, 129, 510, 229, false);
+		pokemon = new Pokemon(242, "Blissey", Types.NORMAL, -1, 129, 510, 229, false);
 
 
 		qm = moves.getQuickMove("Pound");
@@ -4675,7 +4676,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(243, "Raikou", "Electric", null, 241, 180, 210, false);
+		pokemon = new Pokemon(243, "Raikou", Types.ELECTRIC, -1, 241, 180, 210, false);
 
 
 		qm = moves.getQuickMove("Thunder Shock");
@@ -4693,7 +4694,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(244, "Entei", "Fire", null, 235, 230, 180, false);
+		pokemon = new Pokemon(244, "Entei", Types.FIRE, -1, 235, 230, 180, false);
 
 		qm = moves.getQuickMove("Fire Spin");
 		pokemon.learnQuickMove(qm);
@@ -4710,7 +4711,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(245, "Suicune", "Water", null, 180, 200, 235, false);
+		pokemon = new Pokemon(245, "Suicune", Types.WATER, -1, 180, 200, 235, false);
 
 
 		qm = moves.getQuickMove("Extrasensory");
@@ -4728,7 +4729,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(246, "Larvitar", "Ground", "Rock", 115, 100, 93, false);
+		pokemon = new Pokemon(246, "Larvitar", Types.GROUND, Types.ROCK, 115, 100, 93, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -4746,7 +4747,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(247, "Pupitar", "Ground", "Rock", 155, 140, 133, false);
+		pokemon = new Pokemon(247, "Pupitar", Types.GROUND, Types.ROCK, 155, 140, 133, false);
 
 
 		qm = moves.getQuickMove("Bite");
@@ -4764,7 +4765,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(248, "Tyranitar", "Dark", "Rock", 251, 200, 212, false);
+		pokemon = new Pokemon(248, "Tyranitar", Types.DARK, Types.ROCK, 251, 200, 212, false);
 
 		qm = moves.getQuickMove("Bite");
 		pokemon.learnQuickMove(qm);
@@ -4781,7 +4782,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(249, "Lugia", "Flying", "Psychic", 193, 212, 323, false);
+		pokemon = new Pokemon(249, "Lugia", Types.FLYING, Types.PSYCHIC, 193, 212, 323, false);
 
 
 		qm = moves.getQuickMove("Extrasensory");
@@ -4799,7 +4800,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(250, "Ho-Oh", "Fire", "Flying", 263, 212, 301, false);
+		pokemon = new Pokemon(250, "Ho-Oh", Types.FIRE, Types.FLYING, 263, 212, 301, false);
 
 
 		qm = moves.getQuickMove("Extrasensory");
@@ -4817,7 +4818,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(251, "Celebi", "Grass", "Psychic", 210, 200, 210, false);
+		pokemon = new Pokemon(251, "Celebi", Types.GRASS, Types.PSYCHIC, 210, 200, 210, false);
 
 
 		qm = moves.getQuickMove("Confusion");

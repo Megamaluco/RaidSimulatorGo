@@ -5,11 +5,11 @@ public abstract class Moves {
 	private String name;
 	private int power;
 	private int cooldown;
-	private String type;
+	private int type;
 	
 		
 	
-	public Moves(String name, int power, int cooldown, String type) {
+	public Moves(String name, int power, int cooldown, int type) {
 		this.name = name;
 		this.power = power;
 		this.cooldown = cooldown;
@@ -42,7 +42,7 @@ public abstract class Moves {
 	/**
 	 * @return the type
 	 */
-	public String getType() {
+	public int getType() {
 		return type;
 	}
 

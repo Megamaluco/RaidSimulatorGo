@@ -25,8 +25,8 @@ public class Pokemon {
 	private String name;
 	private List<QuickMove> quickMoves;
 	private List<ChargeMove> chargeMoves;
-	private String typeA;
-	private String typeB;
+	private int typeA;
+	private int typeB;
 	private int baseAttack;
 	private int baseStamina;
 	private int baseDefense;
@@ -41,7 +41,7 @@ public class Pokemon {
 	protected int hp;
 
 
-	public Pokemon(int dexEntry, String name, String typeA, String typeB, int baseAttack, int baseStamina,
+	public Pokemon(int dexEntry, String name, int typeA, int typeB, int baseAttack, int baseStamina,
 			int baseDefense, boolean isFinalEvolution) {
 		this.dexEntry = dexEntry;
 		this.name = name;
@@ -166,7 +166,7 @@ public class Pokemon {
 	/**
 	 * @return the typeA
 	 */
-	public String getTypeA() {
+	public int getTypeA() {
 
 		return typeA;
 	}
@@ -175,7 +175,7 @@ public class Pokemon {
 	/**
 	 * @return the typeB
 	 */
-	public String getTypeB() {
+	public int getTypeB() {
 
 		return typeB;
 	}
