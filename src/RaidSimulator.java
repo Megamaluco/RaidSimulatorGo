@@ -221,7 +221,7 @@ public class RaidSimulator {
 			effective *= typeChartAdvantage[attackerQm.getType()][defender.getTypeB()];
 
 
-		double damage = (1 / 2) * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab
+		double damage = 0.5 * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab
 				* effective;
 
 
@@ -241,7 +241,7 @@ public class RaidSimulator {
 			effective *= typeChartAdvantage[attackerCm.getType()][defender.getTypeB()];
 
 
-		damage = (1 / 2) * attackerCm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
+		damage = 0.5 * attackerCm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
 
 
 		attackerChargeAttackDamage = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
@@ -260,7 +260,7 @@ public class RaidSimulator {
 			effective *= typeChartAdvantage[defenderQm.getType()][attacker.getTypeB()];
 
 
-		damage = (1 / 2) * defenderQm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
+		damage = 0.5 * defenderQm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
 
 
 		defenderQuickAttackDamage = (int) (Math.floor(damage)) + 1;
@@ -279,7 +279,7 @@ public class RaidSimulator {
 			effective *= typeChartAdvantage[defenderCm.getType()][attacker.getTypeB()];
 
 
-		damage = (1 / 2) * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
+		damage = 0.5 * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
 
 
 		defenderChargeAttackDamage = (int) (Math.floor(damage)) + 1;
@@ -356,7 +356,7 @@ public class RaidSimulator {
 				if (!deffenderDoingChargeAttack) {
 					if (rng.nextBoolean()) {
 						deffenderDoingChargeAttack = true;
-						int randomIncrement = 15 + rng.nextInt(25);
+						int randomIncrement = 150 + rng.nextInt(250-150);
 						defenderLastCm = timer - randomIncrement;
 
 						defenderHasToWait = defenderCm.getCooldown() + randomIncrement;
@@ -400,7 +400,7 @@ public class RaidSimulator {
 				}
 
 
-				int randomIncrement = 15 + rng.nextInt(25);
+				int randomIncrement = 150 + rng.nextInt(250-150);
 
 				defenderLastQm = timer - randomIncrement;
 

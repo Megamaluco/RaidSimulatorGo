@@ -24,8 +24,8 @@ public class RaidBattleBruteForce {
 	 */
 
 
-	private static final int MAX_ITS = 1;
-	private static final boolean PARALLEL = false;
+	private static final int MAX_ITS = 100;
+	private static final boolean PARALLEL = true;
 
 
 	public static void main(String[] args) throws CloneNotSupportedException {
@@ -58,7 +58,7 @@ public class RaidBattleBruteForce {
 						for (ChargeMove acm : attackerChargeMoves) {
 							for (QuickMove dqm : defenderQuickmoves) {
 								for (ChargeMove dcm : defenderChargeMoves) {
-									for (int numberOfAttackers = 1; numberOfAttackers <= 20; numberOfAttackers++) {
+									for (int numberOfAttackers = 1; numberOfAttackers <= 2; numberOfAttackers++) {
 										int it = 0;
 										RaidSimulator rs = new RaidSimulator(pkm, rb, aqm, dqm, acm, dcm,
 												numberOfAttackers);

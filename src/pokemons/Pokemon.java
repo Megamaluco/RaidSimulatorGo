@@ -36,8 +36,8 @@ public class Pokemon {
 	private boolean isFinalEvolution;
 	private int cp;
 	private int level;
-	protected int attack;
-	protected int defense;
+	protected double attack;
+	protected double defense;
 	protected int hp;
 
 
@@ -57,8 +57,8 @@ public class Pokemon {
 		this.hpIV = 0;
 		this.defenseIV = 0;
 		this.level = 0;
-		this.attack = (int) ((baseAttack + attackIV) * CPM[level]);
-		this.defense = (int) ((baseDefense + defenseIV) * CPM[level]);
+		this.attack = ((baseAttack + attackIV) * CPM[level]);
+		this.defense = ((baseDefense + defenseIV) * CPM[level]);
 		this.hp = (int) ((baseStamina + hpIV) * CPM[level]);
 		this.cp = getCp();
 
@@ -246,13 +246,13 @@ public class Pokemon {
 
 	private void updateDefense() {
 
-		this.defense = (int) ((baseDefense + defenseIV) * CPM[level]);
+		this.defense = (baseDefense + defenseIV) * CPM[level];
 	}
 
 
 	private void updateAttack() {
 
-		this.attack = (int) ((baseAttack + attackIV) * CPM[level]);
+		this.attack = (baseAttack + attackIV) * CPM[level];
 	}
 
 
@@ -290,7 +290,7 @@ public class Pokemon {
 	/**
 	 * @return the attack
 	 */
-	public int getAttack() {
+	public double getAttack() {
 
 		return attack;
 	}
@@ -299,7 +299,7 @@ public class Pokemon {
 	/**
 	 * @return the defense
 	 */
-	public int getDefense() {
+	public double getDefense() {
 
 		return defense;
 	}

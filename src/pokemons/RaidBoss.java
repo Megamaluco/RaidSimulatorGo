@@ -24,8 +24,8 @@ public class RaidBoss extends Pokemon {
 		this.defenseIV = 15;
 		this.hpIV = 15;
 		this.tier = tier;
-		this.attack = (int) ((baseAttack + attackIV) * CPM_RAID[tier-1]);
-		this.defense = (int) ((baseDefense + defenseIV) * CPM_RAID[tier-1]);
+		this.attack = (baseAttack + attackIV) * CPM_RAID[tier-1];
+		this.defense = (baseDefense + defenseIV) * CPM_RAID[tier-1];
 		this.hp = (int) ((BOSS_HEALTH[tier-1] + hpIV) * CPM_RAID[tier-1]);
 		
 		

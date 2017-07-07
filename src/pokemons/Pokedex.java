@@ -5032,7 +5032,7 @@ public class Pokedex {
 	public Pokemon getPokemon(String name) {
 
 		for (Pokemon poke : allPokemon) {
-			if (name.equalsIgnoreCase(name))
+			if (name.equalsIgnoreCase(poke.getName()))
 				return poke;
 		}
 
@@ -5046,6 +5046,8 @@ public class Pokedex {
 
 		if (pokdexEntry > 251) {
 			System.err.println("POKEMON INDEX NOT FOUND:" + pokdexEntry);
+		} else if (pokdexEntry < 1){
+			System.err.println("POKEMON INDEX INVALID:" + pokdexEntry);
 		}
 
 
