@@ -24,7 +24,7 @@ public class RaidBattleBruteForce {
 	 */
 
 
-	private static final int MAX_ITS = 100;
+	private static final int MAX_ITS = 1000;
 	private static final boolean PARALLEL = true;
 
 
@@ -75,7 +75,7 @@ public class RaidBattleBruteForce {
 													System.out.println("-----------------");
 													System.out.println("Victory!!!");
 													System.out.println(numberOfAttackers + " " + pkm.getName()
-															+ "'s won at level " + level + " Quick Attack: "
+															+ "'s won at level " + level/2.0 + " Quick Attack: "
 															+ aqm.getName() + " and Charge Move: " + acm.getName());
 													System.out.println("Versus");
 													System.out.println(rb.getName() + " with Quick Attack"

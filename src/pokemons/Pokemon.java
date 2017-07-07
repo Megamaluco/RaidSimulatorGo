@@ -28,7 +28,7 @@ public class Pokemon {
 	private int typeA;
 	private int typeB;
 	private int baseAttack;
-	private int baseStamina;
+	protected int baseStamina;
 	private int baseDefense;
 	protected int attackIV;
 	protected int hpIV;
