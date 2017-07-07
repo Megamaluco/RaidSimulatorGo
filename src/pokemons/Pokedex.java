@@ -20,7 +20,8 @@ import moves.Types;
 public class Pokedex {
 
 	private static List<Pokemon> allPokemon = new ArrayList<>();
-	
+	private static AllMoves moves = new AllMoves();;
+
 	static {
 		addAllPokemon();
 	}
@@ -32,11 +33,13 @@ public class Pokedex {
 
 
 	private static void addAllPokemon() {
+		
+		System.out.println("Pokedex.addAllPokemon()");
 
 		Pokemon pokemon;
 		QuickMove qm;
 		ChargeMove cm;
-		AllMoves moves = new AllMoves();
+		
 
 		pokemon = new Pokemon(1, "Bulbasaur", Types.GRASS, Types.POISON, 118, 90, 118, false);
 
@@ -2439,8 +2442,40 @@ public class Pokedex {
 
 		qm = moves.getQuickMove("Water Gun");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("HIDDEN POWER TO DO");
+
+		qm = moves.getQuickMove("Hidden Power Normal");
 		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
+		pokemon.learnQuickMove(qm);
+
 		qm = moves.getQuickMove("Quick Attack");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Tackle");
@@ -2742,7 +2777,37 @@ public class Pokedex {
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Quick Attack");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("HIDDEN POWER TODO");
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
 		pokemon.learnQuickMove(qm);
 
 
@@ -3468,7 +3533,39 @@ public class Pokedex {
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Peck");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power TODO");
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fairy");
 		pokemon.learnQuickMove(qm);
 
 		cm = moves.getChargeMove("Psyshock");
@@ -3489,7 +3586,39 @@ public class Pokedex {
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Extrasensory");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power TODO");
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fairy");
 		pokemon.learnQuickMove(qm);
 
 
@@ -3936,7 +4065,37 @@ public class Pokedex {
 		pokemon = new Pokemon(201, "Unown", Types.PSYCHIC, -1, 136, 96, 91, false);
 
 
-		qm = moves.getQuickMove("HIDEN POWER TODO");
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
 		pokemon.learnQuickMove(qm);
 
 
@@ -4504,7 +4663,37 @@ public class Pokedex {
 
 		qm = moves.getQuickMove("Charge Beam");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power TODO");
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
 		pokemon.learnQuickMove(qm);
 
 
@@ -4860,7 +5049,7 @@ public class Pokedex {
 		}
 
 
-		return allPokemon.get(pokdexEntry);
+		return allPokemon.get(pokdexEntry-1);
 	}
 
 }

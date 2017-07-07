@@ -14,25 +14,22 @@ import java.util.List;
  */
 public class AllMoves {
 
-	private static List<QuickMove> allQuickMoves;
+	private static List<QuickMove> allQuickMoves = new LinkedList<>();
 
-	private static List<ChargeMove> allChargeMoves;
-
-
-	public AllMoves() {
-		synchronized (this) {
-			if (allQuickMoves == null || allChargeMoves == null) {
-				allQuickMoves = new LinkedList<>();
-				addAllQuickMoves();
-				allChargeMoves = new LinkedList<>();
-				addAllChargeMoves();
-			}
-
-		}
+	private static List<ChargeMove> allChargeMoves = new LinkedList<>();
+	
+	static{
+		addAllQuickMoves();
+		addAllChargeMoves();
+		
 	}
 
 
-	private void addAllQuickMoves() {
+	public AllMoves() {
+	}
+
+
+	private static void addAllQuickMoves() {
 
 		allQuickMoves.add(new QuickMove("Acid", 9, 80, 8, Types.POISON));
 		allQuickMoves.add(new QuickMove("Air Slash", 14, 120, 10, Types.FLYING));
@@ -56,7 +53,26 @@ public class AllMoves {
 		allQuickMoves.add(new QuickMove("Frost Breath", 10, 90, 8, Types.ICE));
 		allQuickMoves.add(new QuickMove("Fury Cutter", 3, 40, 6, Types.BUG));
 		allQuickMoves.add(new QuickMove("Hex", 10, 120, 15, Types.GHOST));
-		allQuickMoves.add(new QuickMove("Hidden Power", 15, 150, 15, Types.NORMAL));
+		
+		allQuickMoves.add(new QuickMove("Hidden Power Normal", 15, 150, 15, Types.NORMAL));
+		allQuickMoves.add(new QuickMove("Hidden Power Fire", 15, 150, 15, Types.FIRE));
+		allQuickMoves.add(new QuickMove("Hidden Power Water", 15, 150, 15, Types.WATER));
+		allQuickMoves.add(new QuickMove("Hidden Power Grass", 15, 150, 15, Types.GRASS));
+		allQuickMoves.add(new QuickMove("Hidden Power Electric", 15, 150, 15, Types.ELECTRIC));
+		allQuickMoves.add(new QuickMove("Hidden Power Ice", 15, 150, 15, Types.ICE));
+		allQuickMoves.add(new QuickMove("Hidden Power Fighting", 15, 150, 15, Types.FIGHTING));
+		allQuickMoves.add(new QuickMove("Hidden Power Poison", 15, 150, 15, Types.POISON));
+		allQuickMoves.add(new QuickMove("Hidden Power Ground", 15, 150, 15, Types.GROUND));
+		allQuickMoves.add(new QuickMove("Hidden Power Flying", 15, 150, 15, Types.FLYING));
+		allQuickMoves.add(new QuickMove("Hidden Power Psychic", 15, 150, 15, Types.PSYCHIC));
+		allQuickMoves.add(new QuickMove("Hidden Power Bug", 15, 150, 15, Types.BUG));
+		allQuickMoves.add(new QuickMove("Hidden Power Rock", 15, 150, 15, Types.ROCK));
+		allQuickMoves.add(new QuickMove("Hidden Power Ghost", 15, 150, 15, Types.GHOST));
+		allQuickMoves.add(new QuickMove("Hidden Power Dragon", 15, 150, 15, Types.DRAGON));
+		allQuickMoves.add(new QuickMove("Hidden Power Dark", 15, 150, 15, Types.DARK));
+		allQuickMoves.add(new QuickMove("Hidden Power Steel", 15, 150, 15, Types.STEEL));
+		allQuickMoves.add(new QuickMove("Hidden Power Fairy", 15, 150, 15, Types.FAIRY));
+		
 		allQuickMoves.add(new QuickMove("Ice Shard", 12, 120, 12, Types.ICE));
 		allQuickMoves.add(new QuickMove("Infestation", 10, 110, 14, Types.BUG));
 		allQuickMoves.add(new QuickMove("Iron Tail", 15, 110, 7, Types.STEEL));
@@ -96,7 +112,7 @@ public class AllMoves {
 	}
 
 
-	private void addAllChargeMoves() {
+	private static void addAllChargeMoves() {
 
 		allChargeMoves.add(new ChargeMove("Aerial Ace", 55, 240, 33, Types.FLYING, 190));
 		allChargeMoves.add(new ChargeMove("Air Cutter", 60, 270, 50, Types.FLYING, 180));
@@ -200,7 +216,7 @@ public class AllMoves {
 		allChargeMoves.add(new ChargeMove("Solar Beam", 180, 490, 100, Types.GRASS, 270));
 		allChargeMoves.add(new ChargeMove("Stomp", 55, 170, 50, Types.NORMAL, 110));
 		allChargeMoves.add(new ChargeMove("Stone Edge", 100, 230, 100, Types.ROCK, 70));
-		allChargeMoves.add(new ChargeMove("Struggle", 35, 220, 33, Types.NORMAL, 120));
+		allChargeMoves.add(new ChargeMove("Struggle", 35, 220, 0, Types.NORMAL, 120));
 		allChargeMoves.add(new ChargeMove("Submission", 60, 220, 50, Types.FIGHTING, 180));
 		allChargeMoves.add(new ChargeMove("Swift", 60, 280, 50, Types.NORMAL, 200));
 		allChargeMoves.add(new ChargeMove("Thunder", 100, 240, 100, Types.ELECTRIC, 120));

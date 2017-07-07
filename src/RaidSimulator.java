@@ -217,11 +217,11 @@ public class RaidSimulator {
 			stab = 1.0;
 
 		effective = typeChartAdvantage[attackerQm.getType()][defender.getTypeA()];
-		if (defender.getTypeB() != -1 && effective != IMUNITY)
+		if (defender.getTypeB() != -1)
 			effective *= typeChartAdvantage[attackerQm.getType()][defender.getTypeB()];
 
 
-		double damage = 1 / 2 * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab
+		double damage = (1 / 2) * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab
 				* effective;
 
 
@@ -237,11 +237,11 @@ public class RaidSimulator {
 			stab = 1.0;
 
 		effective = typeChartAdvantage[attackerCm.getType()][defender.getTypeA()];
-		if (defender.getTypeB() != -1 && effective != IMUNITY)
+		if (defender.getTypeB() != -1)
 			effective *= typeChartAdvantage[attackerCm.getType()][defender.getTypeB()];
 
 
-		damage = 1 / 2 * attackerCm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
+		damage = (1 / 2) * attackerCm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
 
 
 		attackerChargeAttackDamage = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
@@ -256,11 +256,11 @@ public class RaidSimulator {
 			stab = 1.0;
 
 		effective = typeChartAdvantage[defenderQm.getType()][attacker.getTypeA()];
-		if (defender.getTypeB() != -1 && effective != IMUNITY)
+		if (attacker.getTypeB() != -1)
 			effective *= typeChartAdvantage[defenderQm.getType()][attacker.getTypeB()];
 
 
-		damage = 1 / 2 * defenderQm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
+		damage = (1 / 2) * defenderQm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
 
 
 		defenderQuickAttackDamage = (int) (Math.floor(damage)) + 1;
@@ -275,11 +275,11 @@ public class RaidSimulator {
 			stab = 1.0;
 
 		effective = typeChartAdvantage[defenderCm.getType()][attacker.getTypeA()];
-		if (defender.getTypeB() != -1 && effective != IMUNITY)
+		if (attacker.getTypeB() != -1)
 			effective *= typeChartAdvantage[defenderCm.getType()][attacker.getTypeB()];
 
 
-		damage = 1 / 2 * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
+		damage = (1 / 2) * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
 
 
 		defenderChargeAttackDamage = (int) (Math.floor(damage)) + 1;
@@ -295,12 +295,14 @@ public class RaidSimulator {
 		boolean deffenderDoingChargeAttack = false;
 		int attackerPokemonFainted = 0;
 
+		int attackHasToWait = 1;
+		int defenderHasToWait = 1;
+
 		Random rng = new Random();
 
 
-		while (true) {
-			if (timer < 0)
-				break;
+		while (timer >= 0) {
+			boolean skipDefenderQuickAttack = false;
 
 
 			if (attackerEnergy >= attackerCm.getEnergyLost()) {
@@ -308,6 +310,8 @@ public class RaidSimulator {
 				if (!attackerDoingChargeAttack) {
 					attackerDoingChargeAttack = true;
 					attackerLastCm = timer;
+
+					attackHasToWait = attackerCm.getCooldown();
 
 
 				} else if (attackerLastCm - timer >= attackerCm.getCooldown()) {
@@ -319,9 +323,11 @@ public class RaidSimulator {
 
 					attackerEnergy -= attackerCm.getEnergyLost();
 
-					defenderEnergy = Math.min(defenderEnergy + attackerChargeAttackDamage / 2, 100);
+					defenderEnergy = Math.min(defenderEnergy + (attackerChargeAttackDamage / 2), 100);
 
 					attackerDoingChargeAttack = false;
+
+					attackHasToWait = 1;
 				}
 
 
@@ -336,8 +342,12 @@ public class RaidSimulator {
 
 				attackerEnergy = Math.min(attackerEnergy + attackerQm.getEnergyGain(), 100);
 
-				defenderEnergy = Math.min(defenderEnergy + attackerQuickAttackDamage / 2, 100);
+				defenderEnergy = Math.min(defenderEnergy + (attackerQuickAttackDamage / 2), 100);
 
+				attackHasToWait = 1;
+
+			} else {
+				attackHasToWait = attackerQm.getCooldown();
 			}
 
 
@@ -346,7 +356,10 @@ public class RaidSimulator {
 				if (!deffenderDoingChargeAttack) {
 					if (rng.nextBoolean()) {
 						deffenderDoingChargeAttack = true;
-						defenderLastCm = timer - (15 + rng.nextInt(25));
+						int randomIncrement = 15 + rng.nextInt(25);
+						defenderLastCm = timer - randomIncrement;
+
+						defenderHasToWait = defenderCm.getCooldown() + randomIncrement;
 					}
 
 
@@ -356,45 +369,58 @@ public class RaidSimulator {
 
 					if (attackerHealthPoints <= 0) {
 						attackerPokemonFainted++;
+						attackerEnergy = 0;
+						attackerHealthPoints = attacker.getHp();
 						if (attackerPokemonFainted == TEAM_SIZE)
 							break;
 					}
 
 					defenderEnergy -= defenderCm.getEnergyLost();
 
-					attackerEnergy = Math.min(attackerEnergy + defenderChargeAttackDamage / 2, 100);
+					attackerEnergy = Math.min(attackerEnergy + (defenderChargeAttackDamage / 2), 100);
 
 					deffenderDoingChargeAttack = false;
-					continue;
+					timer--;
+					defenderHasToWait = 1;
+					skipDefenderQuickAttack = true;
 				}
-
 
 
 			}
 
-			if (defenderLastQm - timer >= defenderQm.getCooldown() && !deffenderDoingChargeAttack) {
+			if (defenderLastQm - timer >= defenderQm.getCooldown() && !deffenderDoingChargeAttack
+					&& !skipDefenderQuickAttack) {
 				attackerHealthPoints -= defenderQuickAttackDamage;
 
 				if (attackerHealthPoints <= 0) {
 					attackerPokemonFainted++;
+					attackerEnergy = 0;
 					if (attackerPokemonFainted == TEAM_SIZE)
 						break;
 				}
 
 
-				defenderLastQm = timer - (15 + rng.nextInt(25));
+				int randomIncrement = 15 + rng.nextInt(25);
+
+				defenderLastQm = timer - randomIncrement;
+
 
 				defenderEnergy = Math.min(attackerEnergy + defenderQm.getEnergyGain(), 100);
 
 				attackerEnergy = Math.min(attackerEnergy + defenderQuickAttackDamage / 2, 100);
 
+				defenderHasToWait = defenderQm.getCooldown() + randomIncrement;
+
 			}
 
-			timer--;
+
+			timer -= Math.min(defenderHasToWait, attackHasToWait);
 
 
 		}
 
+
+		// System.out.println("Battle Ended.");
 
 	}
 
@@ -407,7 +433,7 @@ public class RaidSimulator {
 
 	public boolean wasItClose() {
 
-		return defender.getHp() / 10 <= defenderHealthPoints;
+		return (defender.getHp() / 10) >= defenderHealthPoints;
 
 	}
 

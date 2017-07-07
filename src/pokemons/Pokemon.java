@@ -60,7 +60,7 @@ public class Pokemon {
 		this.attack = (int) ((baseAttack + attackIV) * CPM[level]);
 		this.defense = (int) ((baseDefense + defenseIV) * CPM[level]);
 		this.hp = (int) ((baseStamina + hpIV) * CPM[level]);
-		this.cp = 0;
+		this.cp = getCp();
 
 	}
 
@@ -263,8 +263,18 @@ public class Pokemon {
 	 */
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-
-		return new Pokemon(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense, isFinalEvolution);
+		Pokemon ditto = new Pokemon(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense, isFinalEvolution);
+		ditto.setAttackIV(attackIV);
+		ditto.setDefenseIV(defenseIV);
+		ditto.setHpIV(hpIV);
+		
+		for(QuickMove qm: quickMoves)
+			ditto.learnQuickMove(qm);
+		for(ChargeMove cm: chargeMoves)
+			ditto.learnChargeMove(cm);
+		
+		
+		return ditto;
 	}
 
 
