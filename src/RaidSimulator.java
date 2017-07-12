@@ -22,6 +22,8 @@ public class RaidSimulator {
 	private static final double IMUNITY = 0.51;
 	private static final int TEAM_SIZE = 6;
 
+	private static final boolean DEBUG = false;
+
 
 	private static double[][] typeChartAdvantage = new double[18][18];
 
@@ -221,8 +223,7 @@ public class RaidSimulator {
 			effective *= typeChartAdvantage[attackerQm.getType()][defender.getTypeB()];
 
 
-		double damage = 0.5 * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab
-				* effective;
+		double damage = 0.5 * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
 
 
 		attackerQuickAttackDamage = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
@@ -303,8 +304,9 @@ public class RaidSimulator {
 
 		while (timer >= 0) {
 			boolean skipDefenderQuickAttack = false;
-			
-			System.out.println(timer);
+
+			if (DEBUG)
+				System.out.println(timer);
 
 
 			if (attackerEnergy >= attackerCm.getEnergyLost()) {
@@ -314,8 +316,9 @@ public class RaidSimulator {
 					attackerLastCm = timer;
 
 					attackHasToWait = attackerCm.getCooldown();
-					
-					System.out.println("ATACKER: STARTED CHARGE ATTACK");
+
+					if (DEBUG)
+						System.out.println("ATACKER: STARTED CHARGE ATTACK");
 
 
 				} else if (attackerLastCm - timer >= attackerCm.getCooldown()) {
@@ -332,8 +335,9 @@ public class RaidSimulator {
 					attackerDoingChargeAttack = false;
 
 					attackHasToWait = 1;
-					
-					System.out.println("ATACKER: FINISHED CHARGE ATTACK");
+
+					if (DEBUG)
+						System.out.println("ATACKER: FINISHED CHARGE ATTACK");
 				}
 
 
@@ -351,12 +355,13 @@ public class RaidSimulator {
 				defenderEnergy = Math.min(defenderEnergy + (attackerQuickAttackDamage / 2), 100);
 
 				attackHasToWait = attackerQm.getCooldown();
-				
-				System.out.println("ATACKER: FINISHED QUICK ATTACK");
+
+				if (DEBUG)
+					System.out.println("ATACKER: FINISHED QUICK ATTACK");
 
 			} else {
 				attackHasToWait = attackerQm.getCooldown() - (attackerLastQm - timer);
-				//System.out.println("ATACKER: DOING QUICK ATTACK");
+				// System.out.println("ATACKER: DOING QUICK ATTACK");
 			}
 
 
@@ -365,12 +370,13 @@ public class RaidSimulator {
 				if (!deffenderDoingChargeAttack) {
 					if (rng.nextBoolean()) {
 						deffenderDoingChargeAttack = true;
-						int randomIncrement = 150 + rng.nextInt(250-150);
+						int randomIncrement = 150 + rng.nextInt(250 - 150);
 						defenderLastCm = timer - randomIncrement;
 
 						defenderHasToWait = defenderCm.getCooldown() + randomIncrement;
-						
-						System.out.println("DEFENDER: STARTED CHARGE ATTACK");
+
+						if (DEBUG)
+							System.out.println("DEFENDER: STARTED CHARGE ATTACK");
 					}
 
 
@@ -394,8 +400,9 @@ public class RaidSimulator {
 					timer--;
 					defenderHasToWait = defenderCm.getCooldown();
 					skipDefenderQuickAttack = true;
-					
-					System.out.println("DEFENDER: FINISHED CHARGE ATTACK");
+
+					if (DEBUG)
+						System.out.println("DEFENDER: FINISHED CHARGE ATTACK");
 				}
 
 
@@ -412,11 +419,11 @@ public class RaidSimulator {
 						break;
 				}
 
-				
-				System.out.println("DEFENDER: DOING QUICK ATTACK");
+				if (DEBUG)
+					System.out.println("DEFENDER: DOING QUICK ATTACK");
 
-				
-				int randomIncrement = 150 + rng.nextInt(250-150);
+
+				int randomIncrement = 150 + rng.nextInt(250 - 150);
 
 				defenderLastQm = timer - randomIncrement;
 
@@ -427,14 +434,13 @@ public class RaidSimulator {
 
 				defenderHasToWait = defenderQm.getCooldown() + randomIncrement;
 
-			} else if(!deffenderDoingChargeAttack && !skipDefenderQuickAttack){
+			} else if (!deffenderDoingChargeAttack && !skipDefenderQuickAttack) {
 				defenderHasToWait = defenderQm.getCooldown() - (defenderLastQm - timer);
 			}
 
 
 			timer -= Math.min(defenderHasToWait, attackHasToWait);
-			//timer -= 1;
-
+			// timer -= 1;
 
 
 		}

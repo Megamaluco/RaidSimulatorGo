@@ -33,7 +33,7 @@ public class RaidBattleBruteForce {
 
 		Pokedex pd = new Pokedex();
 		RaidDex rd = new RaidDex();
-		RaidBoss rb = rd.findeRaidBoss("Tyranitar");
+		RaidBoss rb = rd.findeRaidBoss("Jolteon");
 
 		if (PARALLEL)
 			IntStream.range(1, 251).parallel().forEach(i -> {
