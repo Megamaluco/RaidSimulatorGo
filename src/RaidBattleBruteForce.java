@@ -58,7 +58,7 @@ public class RaidBattleBruteForce {
 						for (ChargeMove acm : attackerChargeMoves) {
 							for (QuickMove dqm : defenderQuickmoves) {
 								for (ChargeMove dcm : defenderChargeMoves) {
-									for (int numberOfAttackers = 1; numberOfAttackers <= 2; numberOfAttackers++) {
+									for (int numberOfAttackers = 1; numberOfAttackers <= 1; numberOfAttackers++) {
 										int it = 0;
 										RaidSimulator rs = new RaidSimulator(pkm, rb, aqm, dqm, acm, dcm,
 												numberOfAttackers);
@@ -86,9 +86,7 @@ public class RaidBattleBruteForce {
 												}
 												numberOfAttackers = 21;
 												break;
-											} else if (!rs.wasItClose()) {
-												break;
-											}
+											} 
 
 											rs.resetBatle();
 											it++;

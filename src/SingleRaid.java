@@ -30,8 +30,8 @@ public class SingleRaid {
 
 		Pokedex pd = new Pokedex();
 		RaidDex rd = new RaidDex();
-		RaidBoss rb = rd.findeRaidBoss("Tyranitar");
-		Pokemon pkm = pd.getPokemon("Machamp");
+		RaidBoss rb = rd.findeRaidBoss("Jolteon");
+		Pokemon pkm = pd.getPokemon("Rhydon");
 
 
 		List<QuickMove> attackerQuickmoves = pkm.getQuickMoves();
