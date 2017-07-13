@@ -463,7 +463,7 @@ public class RaidDex {
 	}
 	
 	
-	public RaidBoss findeRaidBoss(String name){
+	public RaidBoss findRaidBoss(String name){
 		for(RaidBoss rb: raidBossList)
 			if(name.equalsIgnoreCase(rb.getName()))
 					return rb;
@@ -472,10 +472,13 @@ public class RaidDex {
 		return null;
 	}
 	
-	public RaidBoss findeRaidBoss(int raidBossId){
+	public RaidBoss findRaidBoss(int raidBossId){
 		for(RaidBoss rb: raidBossList)
 			if(raidBossId == rb.getDexEntry())
 					return rb;
+		
+		System.err.println("BOSS NOT FOUND ID: " + raidBossId);
+		
 		return null;
 	}
 

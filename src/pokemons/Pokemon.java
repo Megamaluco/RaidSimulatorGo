@@ -256,13 +256,7 @@ public class Pokemon {
 	}
 
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#clone()
-	 */
-	@Override
-	public Object clone() throws CloneNotSupportedException {
+	public Pokemon mYclone() {
 		Pokemon ditto = new Pokemon(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense, isFinalEvolution);
 		ditto.setAttackIV(attackIV);
 		ditto.setDefenseIV(defenseIV);

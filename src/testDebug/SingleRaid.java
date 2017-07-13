@@ -1,5 +1,7 @@
+package testDebug;
 import java.util.List;
 
+import batle.RaidSimulator;
 import moves.ChargeMove;
 import moves.QuickMove;
 import pokemons.Pokedex;
@@ -30,7 +32,7 @@ public class SingleRaid {
 
 		Pokedex pd = new Pokedex();
 		RaidDex rd = new RaidDex();
-		RaidBoss rb = rd.findeRaidBoss("Jolteon");
+		RaidBoss rb = rd.findRaidBoss("Jolteon");
 		Pokemon pkm = pd.getPokemon("Rhydon");
 
 
