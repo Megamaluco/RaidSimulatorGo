@@ -471,5 +471,12 @@ public class RaidDex {
 		System.err.println("BOSS NOT FOUND NAME: " + name);
 		return null;
 	}
+	
+	public RaidBoss findeRaidBoss(int raidBossId){
+		for(RaidBoss rb: raidBossList)
+			if(raidBossId == rb.getDexEntry())
+					return rb;
+		return null;
+	}
 
 }
