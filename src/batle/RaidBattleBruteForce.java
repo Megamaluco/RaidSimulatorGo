@@ -49,10 +49,11 @@ public class RaidBattleBruteForce {
 
 
 	/**
-	 * @param maxParticipants the maxParticipants to set
+	 * @param maxParticipants
+	 *            the maxParticipants to set
 	 */
 	public void setMaxParticipants(int maxParticipants) {
-		
+
 		this.maxParticipants = Math.min(maxParticipants, MAX_PARTICIPANTS);
 	}
 
@@ -68,7 +69,6 @@ public class RaidBattleBruteForce {
 
 		IntStream.range(1, 251).parallel().forEach(attackerDexEntry -> {
 			Pokemon pkm = (Pokemon) pokeDex.getPokemon(attackerDexEntry).mYclone();
-
 
 
 			List<QuickMove> attackerQuickmoves = pkm.getQuickMoves();
@@ -87,7 +87,9 @@ public class RaidBattleBruteForce {
 									int it = 0;
 									RaidSimulator rs = new RaidSimulator(pkm, raidBoss, aqm, dqm, acm, dcm,
 											numberOfAttackers);
+									
 									while (it < MAX_ITS) {
+										rs.simulateBatle();
 										if (rs.didAttackerWin()) {
 											synchronized (System.out) {
 												System.out.println("-----------------");
@@ -99,11 +101,13 @@ public class RaidBattleBruteForce {
 												System.out.println(raidBoss.getName() + " with Quick Attack"
 														+ dqm.getName() + " and Charge Move:" + dcm.getName());
 												System.out.println("On try: " + it);
+												System.out.println("With time Remaning: " + rs.getTimeRemaming());
 												System.out.println("-----------------");
 
 											}
 											numberOfAttackers = MAX_PARTICIPANTS + 1;
 											break;
+
 										}
 
 										rs.resetBatle();

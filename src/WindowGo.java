@@ -105,8 +105,11 @@ public class WindowGo extends JFrame {
 					int i = Integer.parseInt(idPokemon);
 					RaidBattleBruteForce bruteForce = new RaidBattleBruteForce(i);
 
-					if (!bruteForce.raidBossFound())
+					if (!bruteForce.raidBossFound()){
 						labelError.setText("Invalid Raid Boss");
+						return;
+					}
+						
 
 					String result = bruteForce.doBattle();
 

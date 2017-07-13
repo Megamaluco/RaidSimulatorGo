@@ -288,7 +288,7 @@ public class RaidSimulator {
 		if (attacker.getTypeB() != -1)
 			effective *= typeAdavantageChart[defenderCm.getType()][attacker.getTypeB()];
 
-		effective = Math.max(effective,IMUNITY);
+		effective = Math.max(effective, IMUNITY);
 
 		damage = 0.5 * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
 
@@ -476,7 +476,6 @@ public class RaidSimulator {
 
 
 	public void resetBatle() {
-
 		attackerEnergy = 0;
 		defenderEnergy = 0;
 		attackerHealthPoints = attacker.getHp();
