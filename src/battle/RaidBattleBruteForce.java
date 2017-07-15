@@ -1,5 +1,5 @@
 
-package batle;
+package battle;
 
 
 import java.util.List;

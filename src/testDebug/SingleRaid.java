@@ -1,7 +1,7 @@
 package testDebug;
 import java.util.List;
 
-import batle.RaidSimulator;
+import battle.RaidSimulator;
 import moves.ChargeMove;
 import moves.QuickMove;
 import pokemons.Pokedex;

@@ -1,7 +1,11 @@
-package batle;
+
+package battle;
+
+
 import java.util.Random;
 
 import moves.ChargeMove;
+import moves.Moves;
 import moves.QuickMove;
 import moves.Types;
 import pokemons.Pokemon;
@@ -15,19 +19,27 @@ import pokemons.RaidBoss;
  * @author Ricardo Martinho
  *
  */
-public class RaidSimulator {
+public class RaidSimulatorStateMachine {
+
+	protected enum STATE {
+		NOTHING, START_QUICK_ATTACK, START_CHARGE_ATTACK, DOING_QUICK_ATTACK, DOING_CHARGE_ATTACK, FINISHED_QUICK_ATTACK, FINISH_CHARGE_ATTACK;
+	}
 
 
 	private static final double DISADVANTAGE = 0.714;
 	private static final double ADVANTAGE = 1.4;
 	private static final double IMUNITY = 0.51;
 	private static final int TEAM_SIZE = 6;
+	private static final double STAB_BONUS = 1.2;
+
+	private static final int CHARGE_TIME = 100;
+
 	private int timeRemaming;
 
 	private static final boolean DEBUG = false;
 
 
-	private static double[][] typeAdavantageChart = new double[18][18];
+	protected static double[][] typeAdavantageChart = new double[18][18];
 
 	static {
 		for (int i = 0; i < 18; i++)
@@ -181,305 +193,285 @@ public class RaidSimulator {
 
 	}
 
-	private Pokemon attacker;
-	private int attackerEnergy;
-	private int attackerHealthPoints;
-	private int defenderEnergy;
-	private int defenderHealthPoints;
-	private RaidBoss defender;
+	private Attacker attacker;
+	private Defender defender;
+
 	private int numberOFAttackers;
-	private QuickMove attackerQm, defenderQm;
-	private ChargeMove attackerCm, defenderCm;
 
 
-	public RaidSimulator(Pokemon attacker, RaidBoss defender, QuickMove attackerQm, QuickMove defenderQm,
+	public RaidSimulatorStateMachine(Pokemon attacker, RaidBoss defender, QuickMove attackerQm, QuickMove defenderQm,
 			ChargeMove attackerCm, ChargeMove defenderCm, int numerOfAttackers) {
-		this.attacker = attacker;
-		this.defender = defender;
+
+		this.attacker = new Attacker(attacker, attackerQm, attackerCm);
+		this.attacker.setQuickAttackDamage(calculateDamage(attacker, defender, attackerQm));
+		this.attacker.setChargeAttackDamage(calculateDamage(attacker, defender, attackerCm));
+
+
+		this.defender = new Defender(defender, defenderQm, defenderCm);
+		this.defender.setChargeAttackDamage(calculateDamage(defender, attacker, defenderQm));
+		this.defender.setChargeAttackDamage(calculateDamage(defender, attacker, defenderCm));
+
 		this.numberOFAttackers = numerOfAttackers;
 		resetBatle();
-		this.attackerQm = attackerQm;
-		this.defenderQm = defenderQm;
-		this.attackerCm = attackerCm;
-		this.defenderCm = defenderCm;
-		timeRemaming = 0;
 
 
 	}
 
 
-	public void simulateBatle() {
+	private int calculateDamage(Pokemon attacker, Pokemon defender, Moves move) {
 
-		double stab;
-		double effective;
-
-		int attackerQuickAttackDamage;
+		double stab, effective;
 
 
-		if (attackerQm.getType() == attacker.getTypeA() || attackerQm.getType() == attacker.getTypeB())
-			stab = 1.2;
+		if (move.getType() == attacker.getTypeA() || move.getType() == attacker.getTypeB())
+			stab = STAB_BONUS;
 		else
 			stab = 1.0;
 
-		effective = typeAdavantageChart[attackerQm.getType()][defender.getTypeA()];
+		effective = typeAdavantageChart[move.getType()][defender.getTypeA()];
 		if (defender.getTypeB() != -1)
-			effective *= typeAdavantageChart[attackerQm.getType()][defender.getTypeB()];
-		
-		effective = Math.max(effective,IMUNITY);
-
-
-		double damage = 0.5 * attackerQm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
-
-
-		attackerQuickAttackDamage = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
-
-
-		int attackerChargeAttackDamage;
-
-
-		if (attackerCm.getType() == attacker.getTypeA() || attackerCm.getType() == attacker.getTypeB())
-			stab = 1.2;
-		else
-			stab = 1.0;
-
-		effective = typeAdavantageChart[attackerCm.getType()][defender.getTypeA()];
-		if (defender.getTypeB() != -1)
-			effective *= typeAdavantageChart[attackerCm.getType()][defender.getTypeB()];
-		
-		effective = Math.max(effective,IMUNITY);
-
-
-		damage = 0.5 * attackerCm.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
-
-
-		attackerChargeAttackDamage = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
-
-
-		int defenderQuickAttackDamage;
-
-
-		if (defenderQm.getType() == defender.getTypeA() || defenderQm.getType() == defender.getTypeB())
-			stab = 1.2;
-		else
-			stab = 1.0;
-
-		effective = typeAdavantageChart[defenderQm.getType()][attacker.getTypeA()];
-		if (attacker.getTypeB() != -1)
-			effective *= typeAdavantageChart[defenderQm.getType()][attacker.getTypeB()];
-		
-		effective = Math.max(effective,IMUNITY);
-
-
-		damage = 0.5 * defenderQm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
-
-
-		defenderQuickAttackDamage = (int) (Math.floor(damage)) + 1;
-
-
-		int defenderChargeAttackDamage;
-
-
-		if (defenderCm.getType() == defender.getTypeA() || defenderCm.getType() == defender.getTypeB())
-			stab = 1.2;
-		else
-			stab = 1.0;
-
-		effective = typeAdavantageChart[defenderCm.getType()][attacker.getTypeA()];
-		if (attacker.getTypeB() != -1)
-			effective *= typeAdavantageChart[defenderCm.getType()][attacker.getTypeB()];
+			effective *= typeAdavantageChart[move.getType()][defender.getTypeB()];
 
 		effective = Math.max(effective, IMUNITY);
 
-		damage = 0.5 * defenderCm.getPower() * (defender.getAttack() / attacker.getDefense()) * stab * effective;
+
+		double damage = 0.5 * move.getPower() * (attacker.getAttack() / defender.getDefense()) * stab * effective;
+
+		int result = ((int) (Math.floor(damage)) + 1) * numberOFAttackers;
+
+		return result;
+	}
 
 
-		defenderChargeAttackDamage = (int) (Math.floor(damage)) + 1;
+	public void simulateBatle() {
 
+		int timer = 0;
 
-		int timer = 180 * 100;
+		STATE attackerState, defenderState;
 
-		int attackerLastQm = Integer.MAX_VALUE;
-		int attackerLastCm = Integer.MAX_VALUE;
-		int defenderLastQm = Integer.MAX_VALUE;
-		int defenderLastCm = Integer.MAX_VALUE;
-		boolean attackerDoingChargeAttack = false;
-		boolean deffenderDoingChargeAttack = false;
-		int attackerPokemonFainted = 0;
-
-		int attackHasToWait = 1;
-		int defenderHasToWait = 1;
+		int attackerWait = 0;
+		int defenderWait = 0;
+		int attackerLastQm = Integer.MIN_VALUE;
+		int attackerLastCm = Integer.MIN_VALUE;
+		int defenderLastQm = Integer.MIN_VALUE;
+		int defenderLastCm = Integer.MIN_VALUE;
+		boolean battleEnd = false;
 
 		Random rng = new Random();
+		int randomTimer;
+		int numberOfDeaths = 0;
 
 
-		while (timer >= 0) {
-			boolean skipDefenderQuickAttack = false;
+		while (timer < 180 * 100 && !battleEnd) {
 
-			if (DEBUG)
-				System.out.println(timer);
+			attackerState = attacker.getState();
+			defenderState = defender.getState();
 
+			// Attacker
+			switch (attackerState) {
+			case NOTHING:
+				if (attacker.getEnergy() >= attacker.getChargeMove().getEnergyLost()) {
+					// Do charge Attack
 
-			if (attackerEnergy >= attackerCm.getEnergyLost()) {
-
-				if (!attackerDoingChargeAttack) {
-					attackerDoingChargeAttack = true;
-					attackerLastCm = timer;
-
-					attackHasToWait = attackerCm.getCooldown();
-
-					if (DEBUG)
-						System.out.println("ATACKER: STARTED CHARGE ATTACK");
+					attackerWait = 0;
+					attacker.setState(STATE.START_CHARGE_ATTACK);
 
 
-				} else if (attackerLastCm - timer >= attackerCm.getCooldown()) {
+				} else {
+					// Do quick attack
 
-					defenderHealthPoints -= attackerChargeAttackDamage;
+					attackerWait = 0;
+					attacker.setState(STATE.START_QUICK_ATTACK);
 
-					if (defenderHealthPoints <= 0)
-						break;
 
-					attackerEnergy -= attackerCm.getEnergyLost();
-
-					defenderEnergy = Math.min(defenderEnergy + (attackerChargeAttackDamage / 2), 100);
-
-					attackerDoingChargeAttack = false;
-
-					attackHasToWait = 1;
-
-					if (DEBUG)
-						System.out.println("ATACKER: FINISHED CHARGE ATTACK");
 				}
 
 
-			} else if (attackerLastQm - timer >= attackerQm.getCooldown()) {
-				defenderHealthPoints -= attackerQuickAttackDamage;
-
-				if (defenderHealthPoints <= 0)
-					break;
-
-
+				break;
+			case START_QUICK_ATTACK:
 				attackerLastQm = timer;
-
-				attackerEnergy = Math.min(attackerEnergy + attackerQm.getEnergyGain(), 100);
-
-				defenderEnergy = Math.min(defenderEnergy + (attackerQuickAttackDamage / 2), 100);
-
-				attackHasToWait = attackerQm.getCooldown();
-
-				if (DEBUG)
-					System.out.println("ATACKER: FINISHED QUICK ATTACK");
-
-			} else {
-				attackHasToWait = attackerQm.getCooldown() - (attackerLastQm - timer);
-				// System.out.println("ATACKER: DOING QUICK ATTACK");
-			}
+				attackerWait = attacker.getQuickMove().getCooldown();
 
 
-			if (defenderEnergy >= defenderCm.getEnergyLost()) {
+				attacker.setState(STATE.DOING_QUICK_ATTACK);
+				break;
 
-				if (!deffenderDoingChargeAttack) {
-					if (rng.nextBoolean()) {
-						deffenderDoingChargeAttack = true;
-						int randomIncrement = 150 + rng.nextInt(250 - 150);
-						defenderLastCm = timer - randomIncrement;
-
-						defenderHasToWait = defenderCm.getCooldown() + randomIncrement;
-
-						if (DEBUG)
-							System.out.println("DEFENDER: STARTED CHARGE ATTACK");
-					}
-
-
-				} else if (defenderLastCm - timer >= defenderCm.getCooldown()) {
-
-					attackerHealthPoints -= defenderChargeAttackDamage;
-
-					if (attackerHealthPoints <= 0) {
-						attackerPokemonFainted++;
-						attackerEnergy = 0;
-						attackerHealthPoints = attacker.getHp();
-						if (attackerPokemonFainted == TEAM_SIZE)
-							break;
-					}
-
-					defenderEnergy -= defenderCm.getEnergyLost();
-
-					attackerEnergy = Math.min(attackerEnergy + (defenderChargeAttackDamage / 2), 100);
-
-					deffenderDoingChargeAttack = false;
-					timer--;
-					defenderHasToWait = defenderCm.getCooldown();
-					skipDefenderQuickAttack = true;
-
-					if (DEBUG)
-						System.out.println("DEFENDER: FINISHED CHARGE ATTACK");
+			case DOING_QUICK_ATTACK:
+				if (timer - attackerLastQm >= attacker.getQuickMove().getCooldown()) {
+					attackerWait = 0;
+					attacker.setState(STATE.FINISHED_QUICK_ATTACK);
+				} else {
+					attackerWait = attacker.getQuickMove().getCooldown() - (timer - attackerLastQm);
 				}
 
 
-			}
+				break;
+			case FINISHED_QUICK_ATTACK:
+				defender.getAttacked(attacker.getQuickAttackDamage());
+				attacker.gainEnergy(attacker.getQuickMove().getEnergyGain());
 
-			if (defenderLastQm - timer >= defenderQm.getCooldown() && !deffenderDoingChargeAttack
-					&& !skipDefenderQuickAttack) {
-				attackerHealthPoints -= defenderQuickAttackDamage;
+				battleEnd = !defender.isAlive();
 
-				if (attackerHealthPoints <= 0) {
-					attackerPokemonFainted++;
-					attackerEnergy = 0;
-					if (attackerPokemonFainted == TEAM_SIZE)
-						break;
+				attackerWait = 0;
+				attacker.setState(STATE.NOTHING);
+
+
+				break;
+			case START_CHARGE_ATTACK:
+				attackerLastCm = timer + CHARGE_TIME;
+				attackerWait = attacker.getChargeMove().getCooldown() + CHARGE_TIME;
+
+				attacker.setState(STATE.DOING_CHARGE_ATTACK);
+
+
+				break;
+			case DOING_CHARGE_ATTACK:
+				if (timer - attackerLastCm >= attacker.getChargeMove().getCooldown()) {
+					attackerWait = 0;
+					attacker.setState(STATE.FINISHED_QUICK_ATTACK);
+				} else {
+					attackerWait = attacker.getChargeMove().getCooldown() - (timer - attackerLastQm);
 				}
 
-				if (DEBUG)
-					System.out.println("DEFENDER: DOING QUICK ATTACK");
+
+				break;
+
+			case FINISH_CHARGE_ATTACK:
+				defender.getAttacked(attacker.getChargeAttackDamage());
+				attacker.loseEnergy(attacker.getChargeMove().getEnergyLost());
+
+				battleEnd = !defender.isAlive();
+
+				attackerWait = 0;
+				attacker.setState(STATE.NOTHING);
 
 
-				int randomIncrement = 150 + rng.nextInt(250 - 150);
-
-				defenderLastQm = timer - randomIncrement;
-
-
-				defenderEnergy = Math.min(attackerEnergy + defenderQm.getEnergyGain(), 100);
-
-				attackerEnergy = Math.min(attackerEnergy + defenderQuickAttackDamage / 2, 100);
-
-				defenderHasToWait = defenderQm.getCooldown() + randomIncrement;
-
-			} else if (!deffenderDoingChargeAttack && !skipDefenderQuickAttack) {
-				defenderHasToWait = defenderQm.getCooldown() - (defenderLastQm - timer);
+				break;
 			}
 
 
-			timer -= Math.min(defenderHasToWait, attackHasToWait);
-			// timer -= 1;
+			// Defender
+			switch (defenderState) {
+			case NOTHING:
+				if (defender.getEnergy() >= attacker.getChargeMove().getEnergyLost() && rng.nextBoolean()) {
+					// Do charge Attack
+
+					defenderWait = 0;
+					attacker.setState(STATE.START_CHARGE_ATTACK);
+
+
+				} else {
+					// Do quick attack
+
+					defenderWait = 0;
+					defender.setState(STATE.START_QUICK_ATTACK);
+
+
+				}
+
+
+				break;
+			case START_QUICK_ATTACK:
+				randomTimer = 150 + rng.nextInt(250 - 150);
+				defenderLastQm = timer + randomTimer;
+				defenderWait = defender.getQuickMove().getCooldown() + randomTimer;
+
+
+				defender.setState(STATE.DOING_QUICK_ATTACK);
+				break;
+			case DOING_QUICK_ATTACK:
+				if (timer - defenderLastQm >= defender.getQuickMove().getCooldown()) {
+					defenderWait = 0;
+					defender.setState(STATE.FINISHED_QUICK_ATTACK);
+				} else {
+					defenderWait = defender.getQuickMove().getCooldown() - (timer - defenderLastQm);
+				}
+
+
+				break;
+			case FINISHED_QUICK_ATTACK:
+
+				attacker.getAttacked(defender.getQuickAttackDamage());
+				defender.gainEnergy(defender.getQuickMove().getEnergyGain());
+
+
+				if (!attacker.isAlive()) {
+					numberOfDeaths++;
+					attacker.resetHp();
+					attacker.setEnergy(0);
+
+					battleEnd = numberOfDeaths == TEAM_SIZE;
+
+
+				}
+
+				defenderWait = 0;
+				defender.setState(STATE.NOTHING);
+
+
+				break;
+			case START_CHARGE_ATTACK:
+				randomTimer = 150 + rng.nextInt(250 - 150);
+				defenderLastCm = timer + CHARGE_TIME + randomTimer;
+				defenderWait = attacker.getChargeMove().getCooldown() + CHARGE_TIME + randomTimer;
+
+				defender.setState(STATE.DOING_CHARGE_ATTACK);
+
+				break;
+			case DOING_CHARGE_ATTACK:
+				if (timer - defenderLastCm >= defender.getChargeMove().getCooldown()) {
+					defenderWait = 0;
+					defender.setState(STATE.FINISHED_QUICK_ATTACK);
+				} else {
+					defenderWait = defender.getChargeMove().getCooldown() - (timer - defenderLastQm);
+				}
+
+
+				break;
+			case FINISH_CHARGE_ATTACK:
+				attacker.getAttacked(defender.getChargeAttackDamage());
+				defender.loseEnergy(defender.getChargeMove().getEnergyLost());
+
+				if (!attacker.isAlive()) {
+					numberOfDeaths++;
+					attacker.resetHp();
+					attacker.setEnergy(0);
+
+					battleEnd = numberOfDeaths == TEAM_SIZE;
+
+
+				}
+
+
+				defenderWait = 0;
+				defender.setState(STATE.NOTHING);
+
+
+				break;
+			}
 
 
 		}
-		timeRemaming = timer;
 
 
-		// System.out.println("Battle Ended.");
+		timer += Math.min(attackerWait, defenderWait);
+
 
 	}
 
 
 	public boolean didAttackerWin() {
 
-		return defenderHealthPoints <= 0;
-	}
-
-
-	public boolean wasItClose() {
-
-		return (defender.getHp() / 10) >= defenderHealthPoints;
-
+		return !defender.isAlive();
 	}
 
 
 	public void resetBatle() {
-		attackerEnergy = 0;
-		defenderEnergy = 0;
-		attackerHealthPoints = attacker.getHp();
-		defenderHealthPoints = defender.getHp();
+
+		attacker.setEnergy(0);
+		defender.setEnergy(0);
+		attacker.resetHp();
+		defender.resetHp();
 
 	}
 
@@ -488,8 +480,8 @@ public class RaidSimulator {
 	 * @return the timeRemaming
 	 */
 	public int getTimeRemaming() {
-	
-		return timeRemaming;
+
+		return 180 * 100 - timeRemaming;
 	}
 
 

@@ -31,22 +31,23 @@ public class Pokemon {
 
 	private int dexEntry;
 	private String name;
+	
 	private List<QuickMove> quickMoves;
 	private List<ChargeMove> chargeMoves;
 	private int typeA;
 	private int typeB;
-	private int baseAttack;
+	
+	protected int baseAttack;
 	protected int baseStamina;
-	private int baseDefense;
-	protected int attackIV;
-	protected int hpIV;
-	protected int defenseIV;
+	protected int baseDefense;
+	
+	private int attackIV;
+	private int hpIV;
+	private int defenseIV;
+	
 	private boolean isFinalEvolution;
-	private int cp;
+	
 	private int level;
-	protected double attack;
-	protected double defense;
-	protected int hp;
 
 
 	public Pokemon(int dexEntry, String name, int typeA, int typeB, int baseAttack, int baseStamina, int baseDefense,
@@ -65,10 +66,6 @@ public class Pokemon {
 		this.hpIV = 0;
 		this.defenseIV = 0;
 		this.level = 0;
-		this.attack = ((baseAttack + attackIV) * CPM[level]);
-		this.defense = ((baseDefense + defenseIV) * CPM[level]);
-		this.hp = (int) ((baseStamina + hpIV) * CPM[level]);
-		this.cp = getCp();
 
 	}
 
@@ -89,7 +86,6 @@ public class Pokemon {
 	public void setAttackIV(int attackIV) {
 
 		this.attackIV = attackIV;
-		updateAttack();
 	}
 
 
@@ -109,7 +105,6 @@ public class Pokemon {
 	public void setHpIV(int hpIV) {
 
 		this.hpIV = hpIV;
-		updateHP();
 	}
 
 
@@ -129,7 +124,6 @@ public class Pokemon {
 	public void setDefenseIV(int defenseIV) {
 
 		this.defenseIV = defenseIV;
-		updateDefense();
 	}
 
 
@@ -138,9 +132,9 @@ public class Pokemon {
 	 */
 	public int getCp() {
 
-		int preCP = (int) ((attack * Math.sqrt(defense) * Math.sqrt(hp) * Math.pow(CPM[level], 2)) / 10.0);
-		cp = Math.max(preCP, 10);
-		return cp;
+		int preCP = (int) ((getAttack() * Math.sqrt(getDefense()) * Math.sqrt(getHp()) * Math.pow(CPM[level], 2))
+				/ 10.0);
+		return Math.max(preCP, 10);
 	}
 
 
@@ -239,28 +233,6 @@ public class Pokemon {
 	public void setLevel(int level) {
 
 		this.level = level;
-		updateAttack();
-		updateDefense();
-		updateHP();
-	}
-
-
-	private void updateHP() {
-
-		this.hp = (int) ((baseStamina + hpIV) * CPM[level]);
-
-	}
-
-
-	private void updateDefense() {
-
-		this.defense = (baseDefense + defenseIV) * CPM[level];
-	}
-
-
-	private void updateAttack() {
-
-		this.attack = (baseAttack + attackIV) * CPM[level];
 	}
 
 
@@ -287,7 +259,7 @@ public class Pokemon {
 	 */
 	public int getHp() {
 
-		return hp;
+		return (int) ((baseStamina + hpIV) * CPM[level]);
 	}
 
 
@@ -296,7 +268,7 @@ public class Pokemon {
 	 */
 	public double getAttack() {
 
-		return attack;
+		return ((baseAttack + attackIV) * CPM[level]);
 	}
 
 
@@ -305,7 +277,7 @@ public class Pokemon {
 	 */
 	public double getDefense() {
 
-		return defense;
+		return ((baseDefense + defenseIV) * CPM[level]);
 	}
 
 

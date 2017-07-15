@@ -11,7 +11,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 
-import batle.RaidBattleBruteForce;
+import battle.RaidBattleBruteForce;
 
 public class WindowGo extends JFrame {
 
