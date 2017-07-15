@@ -1,6 +1,7 @@
 
 package battle;
 
+
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -30,6 +31,7 @@ public class RaidBattleBruteForce {
 	private int maxParticipants;
 	private Pokemon pokemonToUse;
 
+
 	public RaidBattleBruteForce(int index) {
 		pokeDex = new Pokedex();
 		raidDex = new RaidDex();
@@ -37,12 +39,14 @@ public class RaidBattleBruteForce {
 		maxParticipants = 1;
 	}
 
+
 	public RaidBattleBruteForce(String name) {
 		pokeDex = new Pokedex();
 		raidDex = new RaidDex();
 		raidBoss = raidDex.findRaidBoss(name);
 		maxParticipants = 1;
 	}
+
 
 	/**
 	 * @param maxParticipants
@@ -53,12 +57,14 @@ public class RaidBattleBruteForce {
 		this.maxParticipants = Math.min(maxParticipants, MAX_PARTICIPANTS);
 	}
 
+
 	public boolean setPokemonToUseId(int pokemonToUseId) {
+
 		try {
 			if (pokemonToUseId == 0)
 				pokemonToUse = null;
 			else
-				pokemonToUse = (Pokemon) pokeDex.getPokemon(pokemonToUseId).mYclone();
+				pokemonToUse = pokeDex.getPokemon(pokemonToUseId);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			return false;
@@ -66,25 +72,28 @@ public class RaidBattleBruteForce {
 
 	}
 
+
 	public boolean raidBossFound() {
 
 		return raidBoss != null;
 	}
 
+
 	public String doBattle() {
 
 		if (pokemonToUse == null)
-			IntStream.range(1, 251).parallel().forEach(attackerDexEntry -> {
-				Pokemon pkm = (Pokemon) pokeDex.getPokemon(attackerDexEntry).mYclone();
+			IntStream.rangeClosed(1, 251).parallel().forEach(attackerDexEntry -> {
+				Pokemon pkm = pokeDex.getPokemon(attackerDexEntry).myClone();
 				simulateBattle(pkm);
 
 			});
 		else
-			simulateBattle(pokemonToUse);
+			simulateSingleBattle(pokemonToUse);
 
 		return "";
 
 	}
+
 
 	public void simulateBattle(Pokemon pkm) {
 
@@ -101,8 +110,8 @@ public class RaidBattleBruteForce {
 						for (ChargeMove dcm : defenderChargeMoves) {
 							for (int numberOfAttackers = 1; numberOfAttackers <= maxParticipants; numberOfAttackers++) {
 								int it = 0;
-								RaidSimulator rs = new RaidSimulator(pkm, raidBoss, aqm, dqm, acm, dcm,
-										numberOfAttackers);
+								RaidSimulatorStateMachine rs = new RaidSimulatorStateMachine(pkm, raidBoss, aqm, dqm,
+										acm, dcm, numberOfAttackers);
 
 								while (it < MAX_ITS) {
 									rs.simulateBatle();
@@ -140,6 +149,69 @@ public class RaidBattleBruteForce {
 			}
 
 		}
+
+	}
+
+
+	public void simulateSingleBattle(Pokemon pkm) {
+
+		IntStream.rangeClosed(0, 78).parallel().forEach(level -> {
+			Pokemon testSubject = pkm.myClone();
+//			testSubject.setAttackIV(0);
+//			testSubject.setDefenseIV(0);
+//			testSubject.setHpIV(0);
+			List<QuickMove> attackerQuickmoves = testSubject.getQuickMoves();
+			List<ChargeMove> attackerChargeMoves = testSubject.getChargeMoves();
+			List<QuickMove> defenderQuickmoves = raidBoss.getQuickMoves();
+			List<ChargeMove> defenderChargeMoves = raidBoss.getChargeMoves();
+			testSubject.setLevel(level);
+			for (QuickMove aqm : attackerQuickmoves) {
+				for (ChargeMove acm : attackerChargeMoves) {
+					for (QuickMove dqm : defenderQuickmoves) {
+						for (ChargeMove dcm : defenderChargeMoves) {
+							for (int numberOfAttackers = 1; numberOfAttackers <= maxParticipants; numberOfAttackers++) {
+								int it = 0;
+								RaidSimulatorStateMachine rs = new RaidSimulatorStateMachine(testSubject, raidBoss, aqm, dqm,
+										acm, dcm, numberOfAttackers);
+
+								while (it < MAX_ITS) {
+									rs.simulateBatle();
+									if (rs.didAttackerWin()) {
+										synchronized (System.out) {
+											System.out.println("-----------------");
+											System.out.println("Victory!!!");
+											System.out.println(numberOfAttackers + " " + testSubject.getName()
+													+ "'s won at level " + level / 2.0 + " Quick Attack: "
+													+ aqm.getName() + " and Charge Move: " + acm.getName());
+											System.out.println("Versus");
+											System.out.println(raidBoss.getName() + " with Quick Attack" + dqm.getName()
+													+ " and Charge Move:" + dcm.getName());
+											System.out.println("On try: " + it);
+											System.out.println("With time Remaning: " + rs.getTimeRemaming());
+											System.out.println("-----------------");
+
+										}
+										numberOfAttackers = MAX_PARTICIPANTS + 1;
+										break;
+
+									}
+
+									rs.resetBatle();
+									it++;
+
+								}
+							}
+
+						}
+
+					}
+
+				}
+
+
+			}
+
+		});
 
 	}
 

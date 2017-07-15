@@ -37,7 +37,6 @@ public class RaidBoss extends Pokemon {
 	}
 
 	public int getHp() {
-		System.out.println("RaidBoss.getHp()");
 
 		return (int) ((BOSS_HEALTH[tier - 1] + getHpIV()) * CPM_RAID[tier - 1]);
 	}

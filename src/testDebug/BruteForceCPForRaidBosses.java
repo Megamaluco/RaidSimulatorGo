@@ -27,7 +27,7 @@ public class BruteForceCPForRaidBosses {
 
 			boolean exit = false;
 
-			Pokemon mon = (Pokemon) monToClone.mYclone();
+			Pokemon mon = monToClone.myClone();
 
 
 			mon.setLevel(level);

@@ -1,7 +1,7 @@
 package testDebug;
 import java.util.List;
 
-import battle.RaidSimulator;
+import battle.RaidSimulatorStateMachine;
 import moves.ChargeMove;
 import moves.QuickMove;
 import pokemons.Pokedex;
@@ -23,8 +23,7 @@ public class SingleRaid {
 	 * @param args
 	 */
 
-	private static final int MAX_ITS = 1;
-	private static final boolean PARALLEL = false;
+	private static final int MAX_ITS = 5;
 
 
 	public static void main(String[] args) {
@@ -32,8 +31,8 @@ public class SingleRaid {
 
 		Pokedex pd = new Pokedex();
 		RaidDex rd = new RaidDex();
-		RaidBoss rb = rd.findRaidBoss("Jolteon");
-		Pokemon pkm = pd.getPokemon("Rhydon");
+		RaidBoss rb = rd.findRaidBoss("Flareon");
+		Pokemon pkm = pd.getPokemon("Golem");
 
 
 		List<QuickMove> attackerQuickmoves = pkm.getQuickMoves();
@@ -44,40 +43,33 @@ public class SingleRaid {
 
 		for (int level = 0; level < 79; level++) {
 			pkm.setLevel(level);
+			System.out.println(level);
 			for (QuickMove aqm : attackerQuickmoves) {
 				for (ChargeMove acm : attackerChargeMoves) {
 					for (QuickMove dqm : defenderQuickmoves) {
 						for (ChargeMove dcm : defenderChargeMoves) {
-							for (int numberOfAttackers = 2; numberOfAttackers <= 2; numberOfAttackers++) {
+							for (int numberOfAttackers = 1; numberOfAttackers <= 20; numberOfAttackers++) {
 								int it = 0;
-								RaidSimulator rs = new RaidSimulator(pkm, rb, aqm, dqm, acm, dcm, numberOfAttackers);
+								RaidSimulatorStateMachine rs = new RaidSimulatorStateMachine(pkm, rb, aqm, dqm, acm, dcm, numberOfAttackers);
 								while (it < MAX_ITS) {
 									rs.simulateBatle();
-									// System.out.println("Done Batling
-									// " +
-									// pkm.getName() + " Level: " +
-									// level +
-									// "Number Of attackers " +
-									// numberOfAttackers);
 									if (rs.didAttackerWin()) {
 										synchronized (System.out) {
 											System.out.println("-----------------");
 											System.out.println("Victory!!!");
 											System.out.println(numberOfAttackers + " " + pkm.getName()
-													+ "'s won at level " + level + " Quick Attack: " + aqm.getName()
-													+ " and Charge Move: " + acm.getName());
+													+ "'s won at level " + level / 2.0 + " Quick Attack: "
+													+ aqm.getName() + " and Charge Move: " + acm.getName());
 											System.out.println("Versus");
 											System.out.println(rb.getName() + " with Quick Attack" + dqm.getName()
 													+ " and Charge Move:" + dcm.getName());
 											System.out.println("On try: " + it);
+											System.out.println("With time Remaning: " + rs.getTimeRemaming());
 											System.out.println("-----------------");
-
 										}
 										numberOfAttackers = 21;
 										break;
-									} else if (!rs.wasItClose()) {
-										break;
-									}
+									} 
 
 									rs.resetBatle();
 									it++;

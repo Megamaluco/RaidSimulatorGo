@@ -236,7 +236,7 @@ public class Pokemon {
 	}
 
 
-	public Pokemon mYclone() {
+	public Pokemon myClone() {
 
 		Pokemon ditto = new Pokemon(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense,
 				isFinalEvolution);

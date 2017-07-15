@@ -168,6 +168,7 @@ public class WindowGo extends JFrame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
 		WindowGo wg = new WindowGo();
 
 	}

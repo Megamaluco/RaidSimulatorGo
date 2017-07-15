@@ -31,6 +31,7 @@ public class RaidSimulatorStateMachine {
 	private static final double IMUNITY = 0.51;
 	private static final int TEAM_SIZE = 6;
 	private static final double STAB_BONUS = 1.2;
+	private static final int BATTLE_DURATION = 180 * 100;
 
 	private static final int CHARGE_TIME = 100;
 
@@ -201,6 +202,7 @@ public class RaidSimulatorStateMachine {
 
 	public RaidSimulatorStateMachine(Pokemon attacker, RaidBoss defender, QuickMove attackerQm, QuickMove defenderQm,
 			ChargeMove attackerCm, ChargeMove defenderCm, int numerOfAttackers) {
+		this.numberOFAttackers = numerOfAttackers;
 
 		this.attacker = new Attacker(attacker, attackerQm, attackerCm);
 		this.attacker.setQuickAttackDamage(calculateDamage(attacker, defender, attackerQm));
@@ -208,10 +210,10 @@ public class RaidSimulatorStateMachine {
 
 
 		this.defender = new Defender(defender, defenderQm, defenderCm);
-		this.defender.setChargeAttackDamage(calculateDamage(defender, attacker, defenderQm));
+		this.defender.setQuickAttackDamage(calculateDamage(defender, attacker, defenderQm));
 		this.defender.setChargeAttackDamage(calculateDamage(defender, attacker, defenderCm));
 
-		this.numberOFAttackers = numerOfAttackers;
+
 		resetBatle();
 
 
@@ -247,7 +249,7 @@ public class RaidSimulatorStateMachine {
 
 		int timer = 0;
 
-		STATE attackerState, defenderState;
+		STATE attackerState = null, defenderState = null;
 
 		int attackerWait = 0;
 		int defenderWait = 0;
@@ -262,7 +264,7 @@ public class RaidSimulatorStateMachine {
 		int numberOfDeaths = 0;
 
 
-		while (timer < 180 * 100 && !battleEnd) {
+		while (timer < BATTLE_DURATION && !battleEnd) {
 
 			attackerState = attacker.getState();
 			defenderState = defender.getState();
@@ -273,17 +275,23 @@ public class RaidSimulatorStateMachine {
 				if (attacker.getEnergy() >= attacker.getChargeMove().getEnergyLost()) {
 					// Do charge Attack
 
-					attackerWait = 0;
+
 					attacker.setState(STATE.START_CHARGE_ATTACK);
 
 
 				} else {
 					// Do quick attack
 
-					attackerWait = 0;
 					attacker.setState(STATE.START_QUICK_ATTACK);
 
 
+				}
+
+				attackerWait = 0;
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
 				}
 
 
@@ -294,6 +302,11 @@ public class RaidSimulatorStateMachine {
 
 
 				attacker.setState(STATE.DOING_QUICK_ATTACK);
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
 				break;
 
 			case DOING_QUICK_ATTACK:
@@ -304,6 +317,10 @@ public class RaidSimulatorStateMachine {
 					attackerWait = attacker.getQuickMove().getCooldown() - (timer - attackerLastQm);
 				}
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
 
 				break;
 			case FINISHED_QUICK_ATTACK:
@@ -315,6 +332,11 @@ public class RaidSimulatorStateMachine {
 				attackerWait = 0;
 				attacker.setState(STATE.NOTHING);
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
+
 
 				break;
 			case START_CHARGE_ATTACK:
@@ -323,6 +345,11 @@ public class RaidSimulatorStateMachine {
 
 				attacker.setState(STATE.DOING_CHARGE_ATTACK);
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
+
 
 				break;
 			case DOING_CHARGE_ATTACK:
@@ -330,9 +357,14 @@ public class RaidSimulatorStateMachine {
 					attackerWait = 0;
 					attacker.setState(STATE.FINISHED_QUICK_ATTACK);
 				} else {
-					attackerWait = attacker.getChargeMove().getCooldown() - (timer - attackerLastQm);
+					attackerWait = attacker.getChargeMove().getCooldown() - (timer - attackerLastCm);
 				}
 
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
 
 				break;
 
@@ -345,6 +377,10 @@ public class RaidSimulatorStateMachine {
 				attackerWait = 0;
 				attacker.setState(STATE.NOTHING);
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Attacker is:" + attackerState);
+				}
 
 				break;
 			}
@@ -356,17 +392,23 @@ public class RaidSimulatorStateMachine {
 				if (defender.getEnergy() >= attacker.getChargeMove().getEnergyLost() && rng.nextBoolean()) {
 					// Do charge Attack
 
-					defenderWait = 0;
-					attacker.setState(STATE.START_CHARGE_ATTACK);
+					defender.setState(STATE.START_CHARGE_ATTACK);
 
 
 				} else {
 					// Do quick attack
 
-					defenderWait = 0;
+
 					defender.setState(STATE.START_QUICK_ATTACK);
 
 
+				}
+
+				defenderWait = 0;
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
 				}
 
 
@@ -378,6 +420,11 @@ public class RaidSimulatorStateMachine {
 
 
 				defender.setState(STATE.DOING_QUICK_ATTACK);
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
+				}
 				break;
 			case DOING_QUICK_ATTACK:
 				if (timer - defenderLastQm >= defender.getQuickMove().getCooldown()) {
@@ -387,6 +434,10 @@ public class RaidSimulatorStateMachine {
 					defenderWait = defender.getQuickMove().getCooldown() - (timer - defenderLastQm);
 				}
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
+				}
 
 				break;
 			case FINISHED_QUICK_ATTACK:
@@ -399,6 +450,7 @@ public class RaidSimulatorStateMachine {
 					numberOfDeaths++;
 					attacker.resetHp();
 					attacker.setEnergy(0);
+					attacker.setState(STATE.NOTHING);
 
 					battleEnd = numberOfDeaths == TEAM_SIZE;
 
@@ -408,6 +460,10 @@ public class RaidSimulatorStateMachine {
 				defenderWait = 0;
 				defender.setState(STATE.NOTHING);
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
+				}
 
 				break;
 			case START_CHARGE_ATTACK:
@@ -423,7 +479,12 @@ public class RaidSimulatorStateMachine {
 					defenderWait = 0;
 					defender.setState(STATE.FINISHED_QUICK_ATTACK);
 				} else {
-					defenderWait = defender.getChargeMove().getCooldown() - (timer - defenderLastQm);
+					defenderWait = defender.getChargeMove().getCooldown() - (timer - defenderLastCm);
+				}
+
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
 				}
 
 
@@ -436,6 +497,7 @@ public class RaidSimulatorStateMachine {
 					numberOfDeaths++;
 					attacker.resetHp();
 					attacker.setEnergy(0);
+					attacker.setState(STATE.NOTHING);
 
 					battleEnd = numberOfDeaths == TEAM_SIZE;
 
@@ -447,14 +509,21 @@ public class RaidSimulatorStateMachine {
 				defender.setState(STATE.NOTHING);
 
 
+				if (DEBUG) {
+					System.out.println("Timer: " + timer);
+					System.out.println("Defender is:" + defenderState);
+				}
+
 				break;
 			}
 
-
+			timer += Math.min(attackerWait, defenderWait);
+			if(timer<0){
+				System.out.println("fuck");
+			}
 		}
 
-
-		timer += Math.min(attackerWait, defenderWait);
+		timeRemaming = timer;
 
 
 	}
@@ -472,6 +541,8 @@ public class RaidSimulatorStateMachine {
 		defender.setEnergy(0);
 		attacker.resetHp();
 		defender.resetHp();
+		attacker.setState(STATE.NOTHING);
+		defender.setState(STATE.NOTHING);
 
 	}
 
@@ -481,7 +552,7 @@ public class RaidSimulatorStateMachine {
 	 */
 	public int getTimeRemaming() {
 
-		return 180 * 100 - timeRemaming;
+		return BATTLE_DURATION - timeRemaming;
 	}
 
 

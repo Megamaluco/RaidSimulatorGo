@@ -187,7 +187,7 @@ public abstract class BattleMon {
 	}
 	
 	public void loseEnergy(int energyLost){
-		energy = Math.max(0, this.energy - energyLost);
+		energy = Math.max(0, energy - energyLost);
 	}
 
 	
@@ -198,7 +198,7 @@ public abstract class BattleMon {
 	public void getAttacked(int damage) {
 
 		hp -= damage;
-		energy = Math.min(100, energy + damage / 2);
+		energy = Math.min(100, energy + (damage / 2));
 
 	}
 
