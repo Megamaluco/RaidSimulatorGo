@@ -32,6 +32,7 @@ public class RaidSimulatorStateMachine {
 	private static final int TEAM_SIZE = 6;
 	private static final double STAB_BONUS = 1.2;
 	private static final int BATTLE_DURATION = 180 * 100;
+	
 
 	private static final int CHARGE_TIME = 100;
 
@@ -198,7 +199,7 @@ public class RaidSimulatorStateMachine {
 	private Defender defender;
 
 	private int numberOFAttackers;
-
+	public static int bossFullHP = 0;
 
 	public RaidSimulatorStateMachine(Pokemon attacker, RaidBoss defender, QuickMove attackerQm, QuickMove defenderQm,
 			ChargeMove attackerCm, ChargeMove defenderCm, int numerOfAttackers) {
@@ -215,6 +216,7 @@ public class RaidSimulatorStateMachine {
 
 
 		resetBatle();
+		bossFullHP = defender.getHp();
 
 
 	}
@@ -553,6 +555,11 @@ public class RaidSimulatorStateMachine {
 	public int getTimeRemaming() {
 
 		return BATTLE_DURATION - timeRemaming;
+	}
+
+
+	public boolean worthContinuing() {
+		return bossFullHP/2 < defender.getHp();
 	}
 
 

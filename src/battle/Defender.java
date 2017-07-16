@@ -7,20 +7,22 @@ import moves.QuickMove;
 import pokemons.RaidBoss;
 
 public class Defender extends BattleMon {
-	private RaidBoss defender;
+	private RaidBoss def;
 
 
 	public Defender(RaidBoss defender, QuickMove quickMove, ChargeMove chargeMove) {
 		super(quickMove, chargeMove);
-		this.defender = defender;
-		setHp(defender.getHp());
+		this.def = defender;
+		resetHp();
 
 
 	}
 	
 	
+	
+	
 	public void resetHp(){
-		setHp(defender.getHp());
+		setHp(def.getHp());
 	}
 
 

@@ -32,6 +32,7 @@ public class RaidBattleBruteForce {
 	private Pokemon pokemonToUse;
 
 
+
 	public RaidBattleBruteForce(int index) {
 		pokeDex = new Pokedex();
 		raidDex = new RaidDex();
@@ -96,6 +97,8 @@ public class RaidBattleBruteForce {
 
 
 	public void simulateBattle(Pokemon pkm) {
+		
+		System.out.println(pkm.getName());
 
 		List<QuickMove> attackerQuickmoves = pkm.getQuickMoves();
 		List<ChargeMove> attackerChargeMoves = pkm.getChargeMoves();
@@ -110,11 +113,12 @@ public class RaidBattleBruteForce {
 						for (ChargeMove dcm : defenderChargeMoves) {
 							for (int numberOfAttackers = 1; numberOfAttackers <= maxParticipants; numberOfAttackers++) {
 								int it = 0;
-								RaidSimulatorStateMachine rs = new RaidSimulatorStateMachine(pkm, raidBoss, aqm, dqm,
+								RaidSimulatorStateMachine rs = new RaidSimulatorStateMachine(pkm, raidBoss.myClone(), aqm, dqm,
 										acm, dcm, numberOfAttackers);
 
 								while (it < MAX_ITS) {
 									rs.simulateBatle();
+									//System.out.println("Battle finished for " + pkm.getName());
 									if (rs.didAttackerWin()) {
 										synchronized (System.out) {
 											System.out.println("-----------------");
@@ -133,6 +137,9 @@ public class RaidBattleBruteForce {
 										numberOfAttackers = MAX_PARTICIPANTS + 1;
 										break;
 
+									} else if(rs.worthContinuing()){
+										//System.out.println("Not Worth it");
+										break;
 									}
 
 									rs.resetBatle();

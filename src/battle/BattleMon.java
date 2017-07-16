@@ -27,6 +27,7 @@ public abstract class BattleMon {
 		this.lastTimeChargeAttack = 0;
 		this.energy = 0;
 		this.state = STATE.NOTHING;
+		this.hp = 0;
 	}
 
 

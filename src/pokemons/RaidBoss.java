@@ -4,6 +4,8 @@
 
 package pokemons;
 
+import moves.ChargeMove;
+import moves.QuickMove;
 
 /**
  * @author Ricardo Martinho
@@ -50,6 +52,23 @@ public class RaidBoss extends Pokemon {
 	public double getDefense() {
 
 		return ((baseDefense + getDefenseIV()) * CPM_RAID[tier - 1]);
+	}
+	
+	public RaidBoss myClone() {
+		
+
+
+		RaidBoss rb = new RaidBoss(getDexEntry(),getName(), getTypeA(), getTypeB(), baseAttack, baseStamina, baseDefense,
+				isFinalEvolution(), tier);
+
+
+		for (QuickMove qm : getQuickMoves())
+			rb.learnQuickMove(qm);
+		for (ChargeMove cm : getChargeMoves())
+			rb.learnChargeMove(cm);
+
+
+		return rb;
 	}
 
 }
