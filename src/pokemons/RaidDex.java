@@ -14,7 +14,7 @@ public class RaidDex {
 
 
 	private static List<RaidBoss> raidBossList = new ArrayList<>();
-	
+
 	static {
 		fillRaidBosses();
 	}
@@ -459,26 +459,161 @@ public class RaidDex {
 
 		raidBossList.add(boss);
 
+		tier = 5;
+
+		boss = new RaidBoss(144, "Articuno", Types.FLYING, Types.ICE, 192, 180, 249, false, tier);
+
+
+		qm = moves.getQuickMove("Frost Breath");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Blizzard");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Ice Beam");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Icy Wind");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+		boss = new RaidBoss(145, "Zapdos", Types.ELECTRIC, Types.FLYING, 253, 180, 188, false, tier);
+
+
+		qm = moves.getQuickMove("Thunder Shock");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Charge Beam");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Thunder");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Thunderbolt");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Zap Cannon");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Discharge");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+		boss = new RaidBoss(146, "Moltres", Types.FIRE, Types.FLYING, 251, 180, 184, false, tier);
+
+
+		qm = moves.getQuickMove("Ember");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Fire Spin");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Fire Blast");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Flamethrower");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Overheat");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Heat Wave");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+		boss = new RaidBoss(150, "Mewtwo", Types.PSYCHIC, -1, 330, 212, 200, false, tier);
+
+		qm = moves.getQuickMove("Psycho Cut");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Confusion");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Psychic");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Hyper Beam");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Shadow Ball");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Focus Blast");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);		
+		boss = new RaidBoss(249, "Lugia", Types.FLYING, Types.PSYCHIC, 193, 212, 323, false, tier);
+
+
+		qm = moves.getQuickMove("Extrasensory");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Dragon Tail");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Sky Attack");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Hydro Pump");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Future Sight");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);		
+		boss = new RaidBoss(250, "Ho-Oh", Types.FIRE, Types.FLYING, 263, 212, 301, false, tier);
+
+
+		qm = moves.getQuickMove("Extrasensory");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Steel Wing");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Brave Bird");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Fire Blast");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Solar Beam");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+		boss = new RaidBoss(251, "Celebi", Types.GRASS, Types.PSYCHIC, 210, 200, 210, false, tier);
+
+
+		qm = moves.getQuickMove("Confusion");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Charge Beam");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Psychic");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Hyper Beam");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Dazzling Gleam");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+
 
 	}
-	
-	
-	public RaidBoss findRaidBoss(String name){
-		for(RaidBoss rb: raidBossList)
-			if(name.equalsIgnoreCase(rb.getName()))
-					return rb;
-		
+
+
+	public RaidBoss findRaidBoss(String name) {
+
+		for (RaidBoss rb : raidBossList)
+			if (name.equalsIgnoreCase(rb.getName()))
+				return rb;
+
 		System.err.println("BOSS NOT FOUND NAME: " + name);
 		return null;
 	}
-	
-	public RaidBoss findRaidBoss(int raidBossId){
-		for(RaidBoss rb: raidBossList)
-			if(raidBossId == rb.getDexEntry())
-					return rb;
-		
+
+
+	public RaidBoss findRaidBoss(int raidBossId) {
+
+		for (RaidBoss rb : raidBossList)
+			if (raidBossId == rb.getDexEntry())
+				return rb;
+
 		System.err.println("BOSS NOT FOUND ID: " + raidBossId);
-		
+
 		return null;
 	}
 

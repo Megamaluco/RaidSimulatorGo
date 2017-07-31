@@ -13,9 +13,9 @@ import moves.QuickMove;
  */
 public class RaidBoss extends Pokemon {
 
-	private static final double[] CPM_RAID = { 0.61, 0.67, 0.73, 0.79 };
+	private static final double[] CPM_RAID = { 0.61, 0.67, 0.73, 0.79, 0.79};
 	private int tier;
-	private static final int[] BOSS_HEALTH = { 600, 1800, 3000, 7500 };
+	private static final int[] BOSS_HEALTH = { 600, 1800, 3000, 7500, 12500 };
 
 
 	public RaidBoss(int dexEntry, String name, int typeA, int typeB, int baseAttack, int baseStamina, int baseDefense,
@@ -55,9 +55,6 @@ public class RaidBoss extends Pokemon {
 	}
 	
 	public RaidBoss myClone() {
-		
-
-
 		RaidBoss rb = new RaidBoss(getDexEntry(),getName(), getTypeA(), getTypeB(), baseAttack, baseStamina, baseDefense,
 				isFinalEvolution(), tier);
 

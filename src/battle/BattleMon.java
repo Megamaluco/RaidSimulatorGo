@@ -196,10 +196,19 @@ public abstract class BattleMon {
 		energy = Math.min(100, this.energy + energy);
 	}
 
-	public void getAttacked(int damage) {
+	public void getAttacked(int damage, int tier) {
 
 		hp -= damage;
-		energy = Math.min(100, energy + (damage / 2));
+		
+		
+		if(tier == 5 || tier == 4){
+			double energyTier5 =  (6.0 * damage )/ 2.0;			
+			energy = Math.min(100, energy + ((int) (energyTier5)));
+			
+		}else {
+			energy = Math.min(100, energy + (damage / 2));
+
+		}
 
 	}
 

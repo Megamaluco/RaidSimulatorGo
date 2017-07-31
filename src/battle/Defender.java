@@ -18,6 +18,10 @@ public class Defender extends BattleMon {
 
 	}
 	
+	public int getTier(){
+		return def.getTier();
+	}
+	
 	
 	
 	

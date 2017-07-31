@@ -32,7 +32,9 @@ public class RaidSimulatorStateMachine {
 	private static final int TEAM_SIZE = 6;
 	private static final double STAB_BONUS = 1.2;
 	private static final int BATTLE_DURATION = 180 * 100;
-	
+	private static final int TIER_T5_BATTLE_DURATION = 300 * 100;
+	private static final int TEAM_WIPE_OUT_PENALTY = 20 * 100;
+
 
 	private static final int CHARGE_TIME = 100;
 
@@ -201,6 +203,7 @@ public class RaidSimulatorStateMachine {
 	private int numberOFAttackers;
 	public static int bossFullHP = 0;
 
+
 	public RaidSimulatorStateMachine(Pokemon attacker, RaidBoss defender, QuickMove attackerQm, QuickMove defenderQm,
 			ChargeMove attackerCm, ChargeMove defenderCm, int numerOfAttackers) {
 		this.numberOFAttackers = numerOfAttackers;
@@ -265,8 +268,10 @@ public class RaidSimulatorStateMachine {
 		int randomTimer;
 		int numberOfDeaths = 0;
 
+		int battleEndTimer = defender.getTier() == 5 ? TIER_T5_BATTLE_DURATION : BATTLE_DURATION;
 
-		while (timer < BATTLE_DURATION && !battleEnd) {
+
+		while (timer < battleEndTimer && !battleEnd) {
 
 			attackerState = attacker.getState();
 			defenderState = defender.getState();
@@ -326,7 +331,7 @@ public class RaidSimulatorStateMachine {
 
 				break;
 			case FINISHED_QUICK_ATTACK:
-				defender.getAttacked(attacker.getQuickAttackDamage());
+				defender.getAttacked(attacker.getQuickAttackDamage(), defender.getTier());
 				attacker.gainEnergy(attacker.getQuickMove().getEnergyGain());
 
 				battleEnd = !defender.isAlive();
@@ -371,7 +376,7 @@ public class RaidSimulatorStateMachine {
 				break;
 
 			case FINISH_CHARGE_ATTACK:
-				defender.getAttacked(attacker.getChargeAttackDamage());
+				defender.getAttacked(attacker.getChargeAttackDamage(), defender.getTier());
 				attacker.loseEnergy(attacker.getChargeMove().getEnergyLost());
 
 				battleEnd = !defender.isAlive();
@@ -393,17 +398,10 @@ public class RaidSimulatorStateMachine {
 			case NOTHING:
 				if (defender.getEnergy() >= attacker.getChargeMove().getEnergyLost() && rng.nextBoolean()) {
 					// Do charge Attack
-
 					defender.setState(STATE.START_CHARGE_ATTACK);
-
-
 				} else {
 					// Do quick attack
-
-
 					defender.setState(STATE.START_QUICK_ATTACK);
-
-
 				}
 
 				defenderWait = 0;
@@ -419,7 +417,6 @@ public class RaidSimulatorStateMachine {
 				randomTimer = 150 + rng.nextInt(250 - 150);
 				defenderLastQm = timer + randomTimer;
 				defenderWait = defender.getQuickMove().getCooldown() + randomTimer;
-
 
 				defender.setState(STATE.DOING_QUICK_ATTACK);
 
@@ -444,7 +441,7 @@ public class RaidSimulatorStateMachine {
 				break;
 			case FINISHED_QUICK_ATTACK:
 
-				attacker.getAttacked(defender.getQuickAttackDamage());
+				attacker.getAttacked(defender.getQuickAttackDamage(), -1);
 				defender.gainEnergy(defender.getQuickMove().getEnergyGain());
 
 
@@ -454,7 +451,10 @@ public class RaidSimulatorStateMachine {
 					attacker.setEnergy(0);
 					attacker.setState(STATE.NOTHING);
 
-					battleEnd = numberOfDeaths == TEAM_SIZE;
+					if (numberOfDeaths == TEAM_SIZE) {
+						timer += TEAM_WIPE_OUT_PENALTY;
+						numberOfDeaths = 0;
+					}
 
 
 				}
@@ -492,7 +492,7 @@ public class RaidSimulatorStateMachine {
 
 				break;
 			case FINISH_CHARGE_ATTACK:
-				attacker.getAttacked(defender.getChargeAttackDamage());
+				attacker.getAttacked(defender.getChargeAttackDamage(), -1);
 				defender.loseEnergy(defender.getChargeMove().getEnergyLost());
 
 				if (!attacker.isAlive()) {
@@ -501,7 +501,11 @@ public class RaidSimulatorStateMachine {
 					attacker.setEnergy(0);
 					attacker.setState(STATE.NOTHING);
 
-					battleEnd = numberOfDeaths == TEAM_SIZE;
+
+					if (numberOfDeaths == TEAM_SIZE) {
+						timer += TEAM_WIPE_OUT_PENALTY;
+						numberOfDeaths = 0;
+					}
 
 
 				}
@@ -520,8 +524,8 @@ public class RaidSimulatorStateMachine {
 			}
 
 			timer += Math.min(attackerWait, defenderWait);
-			if(timer<0){
-				System.out.println("fuck");
+			if (timer < 0) {
+				System.err.println("fuck");
 			}
 		}
 
@@ -553,13 +557,16 @@ public class RaidSimulatorStateMachine {
 	 * @return the timeRemaming
 	 */
 	public int getTimeRemaming() {
+		
+		int battlemaxTime = defender.getTier() == 5 ? TIER_T5_BATTLE_DURATION : BATTLE_DURATION;
 
-		return BATTLE_DURATION - timeRemaming;
+		return battlemaxTime - timeRemaming;
 	}
 
 
 	public boolean worthContinuing() {
-		return bossFullHP/2 < defender.getHp();
+
+		return bossFullHP / 4 < defender.getHp();
 	}
 
 
