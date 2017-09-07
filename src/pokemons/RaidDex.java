@@ -480,8 +480,6 @@ public class RaidDex {
 		boss = new RaidBoss(145, "Zapdos", Types.ELECTRIC, Types.FLYING, 253, 180, 188, false, tier);
 
 
-		qm = moves.getQuickMove("Thunder Shock");
-		boss.learnQuickMove(qm);
 		qm = moves.getQuickMove("Charge Beam");
 		boss.learnQuickMove(qm);
 
@@ -492,23 +490,17 @@ public class RaidDex {
 		boss.learnChargeMove(cm);
 		cm = moves.getChargeMove("Zap Cannon");
 		boss.learnChargeMove(cm);
-		cm = moves.getChargeMove("Discharge");
-		boss.learnChargeMove(cm);
 
 
 		raidBossList.add(boss);
 		boss = new RaidBoss(146, "Moltres", Types.FIRE, Types.FLYING, 251, 180, 184, false, tier);
 
 
-		qm = moves.getQuickMove("Ember");
-		boss.learnQuickMove(qm);
 		qm = moves.getQuickMove("Fire Spin");
 		boss.learnQuickMove(qm);
 
 
 		cm = moves.getChargeMove("Fire Blast");
-		boss.learnChargeMove(cm);
-		cm = moves.getChargeMove("Flamethrower");
 		boss.learnChargeMove(cm);
 		cm = moves.getChargeMove("Overheat");
 		boss.learnChargeMove(cm);
@@ -517,7 +509,7 @@ public class RaidDex {
 
 
 		raidBossList.add(boss);
-		boss = new RaidBoss(150, "Mewtwo", Types.PSYCHIC, -1, 330, 212, 200, false, tier);
+		boss = new RaidBoss(150, "Mewtwo", Types.PSYCHIC, -1, 300, 193, 182, false, tier);
 
 		qm = moves.getQuickMove("Psycho Cut");
 		boss.learnQuickMove(qm);
@@ -535,7 +527,96 @@ public class RaidDex {
 		boss.learnChargeMove(cm);
 
 
-		raidBossList.add(boss);		
+		raidBossList.add(boss);
+
+
+		boss = new RaidBoss(243, "Raikou", Types.ELECTRIC, -1, 241, 180, 210, false, tier);
+
+
+		qm = moves.getQuickMove("Thunder Shock");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Volt Switch");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Thunder");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Thunderbolt");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Wild Charge");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+
+
+		boss = new RaidBoss(244, "Entei", Types.FIRE, -1, 235, 230, 176, true, tier);
+
+		qm = moves.getQuickMove("Fire Spin");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Fire Fang");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Flamethrower");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Fire Blast");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Overheat");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+
+		boss = new RaidBoss(245, "Suicune", Types.WATER, -1, 180, 200, 235, false, tier);
+
+		qm = moves.getQuickMove("Extrasensory");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Normal");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		boss.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
+		boss.learnQuickMove(qm);
+
+
+		cm = moves.getChargeMove("Hydro Pump");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Bubble Beam");
+		boss.learnChargeMove(cm);
+		cm = moves.getChargeMove("Water Pulse");
+		boss.learnChargeMove(cm);
+
+
+		raidBossList.add(boss);
+
+
 		boss = new RaidBoss(249, "Lugia", Types.FLYING, Types.PSYCHIC, 193, 212, 323, false, tier);
 
 
@@ -553,7 +634,7 @@ public class RaidDex {
 		boss.learnChargeMove(cm);
 
 
-		raidBossList.add(boss);		
+		raidBossList.add(boss);
 		boss = new RaidBoss(250, "Ho-Oh", Types.FIRE, Types.FLYING, 263, 212, 301, false, tier);
 
 

@@ -199,13 +199,13 @@ public abstract class BattleMon {
 	public void getAttacked(int damage, int tier) {
 
 		hp -= damage;
+		boolean test = false;
 		
-		
-		if(tier == 5 || tier == 4){
+		if(tier == 5 || tier == 4 && test){
 			double energyTier5 =  (6.0 * damage )/ 2.0;			
 			energy = Math.min(100, energy + ((int) (energyTier5)));
 			
-		}else {
+		} else {
 			energy = Math.min(100, energy + (damage / 2));
 
 		}

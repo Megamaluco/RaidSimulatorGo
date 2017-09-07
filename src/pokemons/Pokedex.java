@@ -3060,7 +3060,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(150, "Mewtwo", Types.PSYCHIC, -1, 330, 212, 200, false);
+		pokemon = new Pokemon(150, "Mewtwo", Types.PSYCHIC, -1, 300, 193, 182, true);
 
 		qm = moves.getQuickMove("Psycho Cut");
 		pokemon.learnQuickMove(qm);
@@ -4883,7 +4883,7 @@ public class Pokedex {
 
 
 		allPokemon.add(pokemon);
-		pokemon = new Pokemon(244, "Entei", Types.FIRE, -1, 235, 230, 180, false);
+		pokemon = new Pokemon(244, "Entei", Types.FIRE, -1, 235, 230, 176, false);
 
 		qm = moves.getQuickMove("Fire Spin");
 		pokemon.learnQuickMove(qm);
@@ -4906,6 +4906,38 @@ public class Pokedex {
 		qm = moves.getQuickMove("Extrasensory");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Snarl");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Normal");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fire");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Water");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Grass");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Electric");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ice");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Fighting");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Poison");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ground");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Flying");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Psychic");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Bug");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Rock");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Ghost");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Dragon");
+		pokemon.learnQuickMove(qm);
+		qm = moves.getQuickMove("Hidden Power Steel");
 		pokemon.learnQuickMove(qm);
 
 

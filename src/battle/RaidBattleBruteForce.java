@@ -104,6 +104,11 @@ public class RaidBattleBruteForce {
 		List<QuickMove> defenderQuickmoves = raidBoss.getQuickMoves();
 		List<ChargeMove> defenderChargeMoves = raidBoss.getChargeMoves();
 
+		pkm.setAttackIV(0);
+		pkm.setDefenseIV(0);
+		pkm.setHpIV(0);
+		
+		
 		for (int level = 0; level < 79; level++) {
 			pkm.setLevel(level);
 			for (QuickMove aqm : attackerQuickmoves) {
@@ -164,9 +169,9 @@ public class RaidBattleBruteForce {
 
 		IntStream.rangeClosed(0, 78).parallel().forEach(level -> {
 			Pokemon testSubject = pkm.myClone();
-			// testSubject.setAttackIV(0);
-			// testSubject.setDefenseIV(0);
-			// testSubject.setHpIV(0);
+			 testSubject.setAttackIV(15);
+			 testSubject.setDefenseIV(15);
+			 testSubject.setHpIV(15);
 			List<QuickMove> attackerQuickmoves = testSubject.getQuickMoves();
 			List<ChargeMove> attackerChargeMoves = testSubject.getChargeMoves();
 			List<QuickMove> defenderQuickmoves = raidBoss.getQuickMoves();
