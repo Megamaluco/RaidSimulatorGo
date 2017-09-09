@@ -2442,9 +2442,6 @@ public class Pokedex {
 
 		qm = moves.getQuickMove("Water Gun");
 		pokemon.learnQuickMove(qm);
-
-		qm = moves.getQuickMove("Hidden Power Normal");
-		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Water");
@@ -2776,8 +2773,6 @@ public class Pokedex {
 		qm = moves.getQuickMove("Charge Beam");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Quick Attack");
-		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power Normal");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
@@ -3533,8 +3528,6 @@ public class Pokedex {
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Peck");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power Normal");
-		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Water");
@@ -3585,8 +3578,6 @@ public class Pokedex {
 		qm = moves.getQuickMove("Zen Headbutt");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Extrasensory");
-		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power Normal");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
@@ -4065,8 +4056,6 @@ public class Pokedex {
 		pokemon = new Pokemon(201, "Unown", Types.PSYCHIC, -1, 136, 96, 91, false);
 
 
-		qm = moves.getQuickMove("Hidden Power Normal");
-		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Water");
@@ -4663,8 +4652,6 @@ public class Pokedex {
 
 		qm = moves.getQuickMove("Charge Beam");
 		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power Normal");
-		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Water");
@@ -4906,8 +4893,6 @@ public class Pokedex {
 		qm = moves.getQuickMove("Extrasensory");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Snarl");
-		pokemon.learnQuickMove(qm);
-		qm = moves.getQuickMove("Hidden Power Normal");
 		pokemon.learnQuickMove(qm);
 		qm = moves.getQuickMove("Hidden Power Fire");
 		pokemon.learnQuickMove(qm);
