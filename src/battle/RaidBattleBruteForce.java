@@ -32,18 +32,19 @@ public class RaidBattleBruteForce {
 	private Pokemon pokemonToUse;
 
 
-	public RaidBattleBruteForce(int index) {
+	public RaidBattleBruteForce(int index, int tier) {
 		pokeDex = new Pokedex();
 		raidDex = new RaidDex();
-		raidBoss = raidDex.findRaidBoss(index);
+		//raidBoss = raidDex.findRaidBoss(index);~
+		raidBoss = pokeDex.getPokemon(index).getRaidBoss(tier);
 		maxParticipants = 1;
 	}
 
 
-	public RaidBattleBruteForce(String name) {
+	public RaidBattleBruteForce(String name, int tier) {
 		pokeDex = new Pokedex();
 		raidDex = new RaidDex();
-		raidBoss = raidDex.findRaidBoss(name);
+		//raidBoss = raidDex.findRaidBoss(name);
 		maxParticipants = 1;
 	}
 
@@ -97,7 +98,7 @@ public class RaidBattleBruteForce {
 
 	public void simulateBattle(Pokemon pkm) {
 
-		System.out.println(pkm.getName());
+		//System.out.println(pkm.getName());
 
 		List<QuickMove> attackerQuickmoves = pkm.getQuickMoves();
 		List<ChargeMove> attackerChargeMoves = pkm.getChargeMoves();
@@ -140,7 +141,8 @@ public class RaidBattleBruteForce {
 
 										}
 										numberOfAttackers = MAX_PARTICIPANTS + 1;
-										break;
+										
+									break;
 
 									} else if (rs.worthContinuing()) {
 										// System.out.println("Not Worth it");
@@ -169,9 +171,9 @@ public class RaidBattleBruteForce {
 
 		IntStream.rangeClosed(0, 78).parallel().forEach(level -> {
 			Pokemon testSubject = pkm.myClone();
-			 testSubject.setAttackIV(15);
-			 testSubject.setDefenseIV(15);
-			 testSubject.setHpIV(15);
+			 testSubject.setAttackIV(0);
+			 testSubject.setDefenseIV(0);
+			 testSubject.setHpIV(0);
 			List<QuickMove> attackerQuickmoves = testSubject.getQuickMoves();
 			List<ChargeMove> attackerChargeMoves = testSubject.getChargeMoves();
 			List<QuickMove> defenderQuickmoves = raidBoss.getQuickMoves();

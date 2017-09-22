@@ -21,6 +21,7 @@ public class WindowGo extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
+
 	public WindowGo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
@@ -39,7 +40,7 @@ public class WindowGo extends JFrame {
 		JLabel picPokemonBoss = new JLabel(getImage(1));
 		add(picPokemonBoss);
 
-		// Input ID Pokemon
+		// Input ID Pokemon Boss
 		NumberFormatter nf = new NumberFormatter();
 		nf.setMinimum(new Integer(1));
 		JFormattedTextField inputPokemonIdBoss = new JFormattedTextField(nf);
@@ -48,10 +49,23 @@ public class WindowGo extends JFrame {
 		inputPokemonIdBoss.setFont(font);
 		Dimension pokemonIdSize = new Dimension(50, 30);
 		inputPokemonIdBoss.setPreferredSize(pokemonIdSize);
-
 		// Alterar automaticamente a imagem do Boss
 		inputPokemonIdBoss.getDocument().addDocumentListener(new EditBossIdListener(picPokemonBoss));
 		add(inputPokemonIdBoss);
+
+
+		// Input Tier
+		nf = new NumberFormatter();
+		nf.setMinimum(new Integer(1));
+		nf.setMaximum(new Integer(5));
+		JFormattedTextField inputRaidBossTier = new JFormattedTextField(nf);
+		inputRaidBossTier.setValue(new Integer(1));
+		inputRaidBossTier.setEditable(true);
+		inputRaidBossTier.setFont(font);
+		Dimension raidBossTierSize = new Dimension(50, 30);
+		inputPokemonIdBoss.setPreferredSize(raidBossTierSize);
+		add(inputRaidBossTier);
+
 
 		// Label Id Pokemon To Fight
 		JLabel labelIdPokemonToUse = new JLabel("Pokemon To Use ID:");
@@ -85,7 +99,7 @@ public class WindowGo extends JFrame {
 		JLabel labelParticipants = new JLabel("Max Number of Participants:");
 		labelParticipants.setFont(font);
 		add(labelParticipants);
-		
+
 		// Input Number of Participants
 		nf = new NumberFormatter();
 		nf.setMinimum(new Integer(1));
@@ -107,7 +121,8 @@ public class WindowGo extends JFrame {
 		// Button Simulate
 
 		JButton simutaleButton = new JButton("Simulate");
-		simutaleButton.addActionListener(new SimulateButtonClick(labelError, inputPokemonIdBoss,inputPokemonIdToUse,inputParticipants));
+		simutaleButton.addActionListener(new SimulateButtonClick(labelError, inputPokemonIdBoss, inputPokemonIdToUse,
+				inputParticipants, inputRaidBossTier));
 
 		add(simutaleButton);
 
@@ -121,6 +136,9 @@ public class WindowGo extends JFrame {
 		// Input Id Boss
 		size = inputPokemonIdBoss.getPreferredSize();
 		inputPokemonIdBoss.setBounds(150 + insets.left, 5 + insets.top, size.width, size.height);
+
+		size = inputRaidBossTier.getPreferredSize();
+		inputRaidBossTier.setBounds(150 + insets.left, 50 + insets.top, size.width, size.height);
 
 		// Image Pokemmon Boss
 		size = picPokemonBoss.getPreferredSize();
@@ -145,11 +163,11 @@ public class WindowGo extends JFrame {
 		// Label Participants
 		size = labelParticipants.getPreferredSize();
 		labelParticipants.setBounds(600 + insets.left, 5 + insets.top, size.width, size.height);
-		
+
 		// Input Participants
 		size = inputParticipants.getPreferredSize();
 		inputParticipants.setBounds(850 + insets.left, 5 + insets.top, size.width, size.height);
-		
+
 		// Button Simulate
 		size = simutaleButton.getPreferredSize();
 		simutaleButton.setBounds(25 + insets.left, 300 + insets.top, size.width, size.height);
@@ -165,13 +183,15 @@ public class WindowGo extends JFrame {
 
 	}
 
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
+
 		WindowGo wg = new WindowGo();
 
 	}
+
 
 	private ImageIcon getImage(int id) {
 
@@ -192,10 +212,12 @@ public class WindowGo extends JFrame {
 
 		JLabel picPokemon;
 
+
 		public EditBossIdListener(JLabel picPokemon) {
 			super();
 			this.picPokemon = picPokemon;
 		}
+
 
 		@Override
 		public void changedUpdate(DocumentEvent arg0) {
@@ -203,17 +225,20 @@ public class WindowGo extends JFrame {
 			UpdateImage(arg0);
 		}
 
+
 		@Override
 		public void insertUpdate(DocumentEvent arg0) {
 
 			UpdateImage(arg0);
 		}
 
+
 		@Override
 		public void removeUpdate(DocumentEvent arg0) {
 
 			UpdateImage(arg0);
 		}
+
 
 		private void UpdateImage(DocumentEvent arg0) {
 
@@ -236,21 +261,33 @@ public class WindowGo extends JFrame {
 		JFormattedTextField pokemonBossId;
 		JFormattedTextField pokemonToUseId;
 		JFormattedTextField numberOfParticipants;
-		public SimulateButtonClick(JLabel labelError, JFormattedTextField pokemonBossId, JFormattedTextField pokemonToUseId, JFormattedTextField numberOfParticipants) {
+		JFormattedTextField inputRaidBossTier;
+
+
+		public SimulateButtonClick(JLabel labelError, JFormattedTextField pokemonBossId,
+				JFormattedTextField pokemonToUseId, JFormattedTextField numberOfParticipants,
+				JFormattedTextField inputRaidBossTier) {
 			super();
 			this.labelError = labelError;
 			this.pokemonBossId = pokemonBossId;
 			this.pokemonToUseId = pokemonToUseId;
 			this.numberOfParticipants = numberOfParticipants;
+			this.inputRaidBossTier = inputRaidBossTier;
 		}
+
 
 		public void actionPerformed(ActionEvent e) {
 
 			try {
 				labelError.setText("");
 				String idPokemon = pokemonBossId.getText();
-				int i = Integer.parseInt(idPokemon);
-				RaidBattleBruteForce bruteForce = new RaidBattleBruteForce(i);
+				int dexEntry = Integer.parseInt(idPokemon);
+				
+				String bossTier = inputRaidBossTier.getText();
+				int tier = Integer.parseInt(bossTier);
+				
+				
+				RaidBattleBruteForce bruteForce = new RaidBattleBruteForce(dexEntry, tier);
 				if (!bruteForce.raidBossFound()) {
 					labelError.setText("Invalid Raid Boss");
 					return;

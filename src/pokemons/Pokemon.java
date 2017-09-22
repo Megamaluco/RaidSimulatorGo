@@ -31,22 +31,22 @@ public class Pokemon {
 
 	private int dexEntry;
 	private String name;
-	
+
 	private List<QuickMove> quickMoves;
 	private List<ChargeMove> chargeMoves;
 	private int typeA;
 	private int typeB;
-	
+
 	protected int baseAttack;
 	protected int baseStamina;
 	protected int baseDefense;
-	
+
 	private int attackIV;
 	private int hpIV;
 	private int defenseIV;
-	
+
 	private boolean isFinalEvolution;
-	
+
 	private int level;
 
 
@@ -251,6 +251,24 @@ public class Pokemon {
 
 
 		return ditto;
+	}
+
+
+	public RaidBoss getRaidBoss(int tier) {
+
+		RaidBoss boss = new RaidBoss(dexEntry, name, typeA, typeB, baseAttack, baseStamina, baseDefense,
+				isFinalEvolution, tier);
+		boss.setAttackIV(attackIV);
+		boss.setDefenseIV(defenseIV);
+		boss.setHpIV(hpIV);
+
+		for (QuickMove qm : quickMoves)
+			boss.learnQuickMove(qm);
+		for (ChargeMove cm : chargeMoves)
+			boss.learnChargeMove(cm);
+
+		return boss;
+
 	}
 
 

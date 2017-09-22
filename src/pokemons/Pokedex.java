@@ -34,8 +34,6 @@ public class Pokedex {
 
 	private static void addAllPokemon() {
 		
-		System.out.println("Pokedex.addAllPokemon()");
-
 		Pokemon pokemon;
 		QuickMove qm;
 		ChargeMove cm;
